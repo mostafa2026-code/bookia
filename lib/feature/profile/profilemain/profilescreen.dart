@@ -1,3 +1,4 @@
+import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -29,7 +30,15 @@ class Profilescreen extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text("Name"), Text("Email")],
+                  children: [
+                    Text(
+                      "Name",
+                      style: MytextStyles.main20_600().copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text("Email", style: MytextStyles.sub14_400()),
+                  ],
                 ),
               ],
             ),
@@ -46,6 +55,7 @@ class Profilescreen extends StatelessWidget {
     );
   }
 }
+
 class Mylisttileprofile extends StatelessWidget {
   final String title;
   final Function() ontap;
@@ -58,7 +68,11 @@ class Mylisttileprofile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title),
+      
+      title: Text(
+        title,
+        style: MytextStyles.main16_400().copyWith(fontSize: 18),
+      ),
       trailing: Icon(Icons.arrow_forward_ios),
       onTap: ontap,
     );

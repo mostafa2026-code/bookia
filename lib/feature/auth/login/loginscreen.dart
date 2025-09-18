@@ -1,3 +1,4 @@
+import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,78 +10,104 @@ class Loginscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Arrowbackcontainer(),
-              Gap(32),
-              Text("Welcome back! Glad\nto see you, Again!"),
-              Gap(32),
-              TextFormField(
-                decoration: InputDecoration(hintText: "Enter your email"),
-              ),
-              Gap(16),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Enter your password",
-                  suffixIcon: Icon(Icons.visibility_off),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Arrowbackcontainer(),
+                Gap(32),
+                Text(
+                  "Welcome back! Glad to see you, Again!",
+                  style: MytextStyles.main24_400().copyWith(fontSize: 30),
                 ),
-              ),
-              Gap(10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Text("Forgot Password?")],
-              ),
-              Gap(32),
-              Center(
-                child: ElevatedButton(onPressed: () {}, child: Text("Log In")),
-              ),
-              Gap(32),
-              Row(
-                children: [
-                  Expanded(child: Divider(color: Colors.black)),
-                  Gap(2),
-                  Text("Log In With"),
-                  Gap(2),
-                  Expanded(child: Divider(color: Colors.black)),
-                ],
-              ),
-              Gap(32),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton.outlined(
+                Gap(32),
+                TextFormField(
+                  decoration: InputDecoration(hintText: "Enter your email"),
+                ),
+                Gap(16),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your password",
+                    suffixIcon: Icon(Icons.visibility_off),
+                  ),
+                ),
+                Gap(10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      child: Text(
+                        "Forgot Password?",
+                        style: MytextStyles.textbottomstyle(),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                Gap(32),
+                Center(
+                  child: ElevatedButton(
                     onPressed: () {},
-                    icon: SvgPicture.asset("assets/images/facebook_ic.svg"),
+                    child: Text(
+                      "Log In",
+                      style: MytextStyles.elevatedbottomtextstyle(),
+                    ),
                   ),
-                  IconButton.outlined(
-                    onPressed: () {},
-                    icon: SvgPicture.asset("assets/images/Group 123.svg"),
-                  ),
-                  IconButton.outlined(
-                    onPressed: () {},
-                    icon: SvgPicture.asset("assets/images/cib_apple.svg"),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Don’t have an account? "),
-                      TextButton(onPressed: () {}, child: Text("Register Now")),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                ),
+                Gap(32),
+                Row(
+                  children: [
+                    Expanded(child: Divider(color: Colors.black)),
+                    Gap(2),
+                    Text("Log In With"),
+                    Gap(2),
+                    Expanded(child: Divider(color: Colors.black)),
+                  ],
+                ),
+                Gap(32),
+                Row(
+                  spacing: 10,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton.outlined(
+                      onPressed: () {},
+                      icon: SvgPicture.asset("assets/images/facebook_ic.svg"),
+                    ),
+
+                    IconButton.outlined(
+                      onPressed: () {},
+                      icon: SvgPicture.asset("assets/images/Group 123.svg"),
+                    ),
+                    IconButton.outlined(
+                      onPressed: () {},
+                      icon: SvgPicture.asset("assets/images/cib_apple.svg"),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Don’t have an account? "),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
+              child: Text(
+                "Register Now",
+                style: MytextStyles.textbottomstyle(),
+              ),
+            ),
+          ],
         ),
       ),
     );

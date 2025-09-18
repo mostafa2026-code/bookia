@@ -27,8 +27,8 @@ class _SplashacreenState extends State<Splashacreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset("assets/images/logo 2.svg"),
-          Text("Order Your Book Now!"),
+          Center(child: SvgPicture.asset("assets/images/logo 2.svg")),
+          Center(child: Text("Order Your Book Now!")),
         ],
       ),
     );

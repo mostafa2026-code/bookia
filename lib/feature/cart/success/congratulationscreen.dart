@@ -1,3 +1,4 @@
+import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
@@ -17,14 +18,27 @@ class Congratulationscreen extends StatelessWidget {
             children: [
               Lottie.asset("assets/icons/Succes.json"),
               Gap(40),
-              Text("SUCCESS!"),
+              Text(
+                "SUCCESS!",
+                style: MytextStyles.main20_600().copyWith(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               Gap(10),
               Text(
                 "Your order will be delivered soon.\nThank you for choosing our app!",
                 textAlign: TextAlign.center,
+                style: MytextStyles.sub16_400(),
               ),
               Gap(40),
-              ElevatedButton(onPressed: () {}, child: Text("Back to Home")),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Back to Home",
+                  style: MytextStyles.elevatedbottomtextstyle(),
+                ),
+              ),
             ],
           ),
         ),

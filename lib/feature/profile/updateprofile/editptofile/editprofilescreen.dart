@@ -1,3 +1,4 @@
+import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -8,35 +9,54 @@ class Editprofilescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Arrowbackcontainer(),
-        title: Text("Edit Profile"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Gap(48),
-              Usercircleavatar(),
-              Gap(16),
-              TextFormField(decoration: InputDecoration(hintText: "Name")),
-              Gap(16),
-              TextFormField(
-                decoration: InputDecoration(hintText: "Phone Number"),
-              ),
-              Gap(16),
-              TextFormField(decoration: InputDecoration(hintText: "Address")),
-              Container(color: Colors.transparent),
-            ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Arrowbackcontainer(),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          "Edit Profile",
+                          style: MytextStyles.main24_400(),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                Gap(48),
+                Usercircleavatar(),
+                Gap(32),
+                TextFormField(decoration: InputDecoration(hintText: "Name")),
+                Gap(16),
+                TextFormField(
+                  decoration: InputDecoration(hintText: "Phone Number"),
+                ),
+                Gap(16),
+                TextFormField(decoration: InputDecoration(hintText: "Address")),
+                Container(color: Colors.transparent),
+              ],
+            ),
           ),
         ),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24),
-        child: ElevatedButton(onPressed: () {}, child: Text("Update Profile")),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: Text(
+            "Update Profile",
+            style: MytextStyles.elevatedbottomtextstyle(),
+          ),
+        ),
       ),
     );
   }

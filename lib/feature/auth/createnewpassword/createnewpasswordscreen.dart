@@ -8,41 +8,43 @@ class Createnewpasswordscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Arrowbackcontainer(),
-              Gap(32),
-              Text("Create new password"),
-              Text(
-                "Your new password must be unique from those previously used.",
-              ),
-              Gap(32),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "New Password",
-                  suffixIcon: Icon(Icons.visibility_off),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Arrowbackcontainer(),
+                Gap(32),
+                Text("Create new password"),
+                Text(
+                  "Your new password must be unique from those previously used.",
                 ),
-              ),
-              Gap(16),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Confirm Password",
-                  suffixIcon: Icon(Icons.visibility_off),
+                Gap(32),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "New Password",
+                    suffixIcon: Icon(Icons.visibility_off),
+                  ),
                 ),
-              ),
-              Gap(32),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Reset Password"),
+                Gap(16),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Confirm Password",
+                    suffixIcon: Icon(Icons.visibility_off),
+                  ),
                 ),
-              ),
-            ],
+                Gap(100),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Reset Password"),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
