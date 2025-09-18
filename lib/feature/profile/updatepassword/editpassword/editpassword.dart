@@ -1,5 +1,4 @@
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
-import 'package:bookia/feature/profile/updateprofile/editptofile/editprofilescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
