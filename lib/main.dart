@@ -1,4 +1,5 @@
-import 'package:bookia/feature/auth/passwordchanged/passwordchnagedScreen.dart';
+import 'package:bookia/feature/auth/createnewpassword/createnewpasswordscreen.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Passwordchnagedscreen()
+      home: Createnewpasswordscreen()
     );
   }
 }

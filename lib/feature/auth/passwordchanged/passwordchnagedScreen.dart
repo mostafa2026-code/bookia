@@ -1,3 +1,4 @@
+import 'package:bookia/feature/auth/createnewpassword/createnewpasswordscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -15,25 +16,14 @@ class Passwordchnagedscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
-                  child: Container(
-                    height: 41,
-                    width: 41,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 0.7),
-                    ),
-                    child: Center(child: Icon(Icons.arrow_back_ios)),
-                  ),
-                ),
+                Arrowbackcontainer(),
                 Gap(32),
                 Text("Forgot Password?"),
                 Text(
                   "Don't worry! It occurs. Please enter the email address linked with your account.",
                 ),
                 Gap(32),
-                TextFormField(decoration: InputDecoration(hintText: "Username")),
+                TextFormField(decoration: InputDecoration(hintText: "Enter your email")),
                 Gap(32),
                 Center(child: ElevatedButton(onPressed: () {}, child: Text("Send Code"))),
                 Gap(32),

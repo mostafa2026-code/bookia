@@ -1,3 +1,4 @@
+import 'package:bookia/feature/auth/createnewpassword/createnewpasswordscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -15,18 +16,7 @@ class Registerscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
-                  child: Container(
-                    height: 41,
-                    width: 41,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 0.7),
-                    ),
-                    child: Center(child: Icon(Icons.arrow_back_ios)),
-                  ),
-                ),
+                Arrowbackcontainer(),
                 Gap(32),
                 Text("Welcome back! Glad\nto see you, Again!"),
                 Gap(32),
