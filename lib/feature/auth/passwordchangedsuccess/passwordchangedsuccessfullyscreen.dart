@@ -14,11 +14,12 @@ class Passwordchangedsuccessfullyscreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset("assets/icons/Succes.json"),
+            Lottie.asset("assets/icons/Succes.json",),
             Gap(40),
             Text("Password Changed!"),
             Gap(10),
             Text("Your password has been changed\nsuccessfully.", textAlign: TextAlign.center,),
+            Gap(40),
             ElevatedButton(onPressed: (){}, child: Text("Back to Login")),
           ],
         ),

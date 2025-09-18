@@ -23,7 +23,10 @@ class Createnewpasswordscreen extends StatelessWidget {
               ),
               Gap(32),
               TextFormField(
-                decoration: InputDecoration(hintText: "New Password"),
+                decoration: InputDecoration(
+                  hintText: "New Password",
+                  suffixIcon: Icon(Icons.visibility_off),
+                ),
               ),
               Gap(16),
               TextFormField(
@@ -33,7 +36,12 @@ class Createnewpasswordscreen extends StatelessWidget {
                 ),
               ),
               Gap(32),
-              Center(child: ElevatedButton(onPressed: () {}, child: Text("Reset Password"))),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Reset Password"),
+                ),
+              ),
             ],
           ),
         ),
