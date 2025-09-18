@@ -12,22 +12,31 @@ class Editprofilescreen extends StatelessWidget {
         leading: Arrowbackcontainer(),
         title: Text("Edit Profile"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        children: [
-          Gap(48),
-          Usercircleavatar(),
-          Gap(16),
-          TextFormField(decoration: InputDecoration(hintText: "Name")),
-          Gap(16),
-          TextFormField(decoration: InputDecoration(hintText: "Phone Number")),
-          Gap(16),
-          TextFormField(decoration: InputDecoration(hintText: "Address")),
-          ElevatedButton(onPressed: (){}, child: Text("Update Profile")),
-          
-        ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Gap(48),
+              Usercircleavatar(),
+              Gap(16),
+              TextFormField(decoration: InputDecoration(hintText: "Name")),
+              Gap(16),
+              TextFormField(
+                decoration: InputDecoration(hintText: "Phone Number"),
+              ),
+              Gap(16),
+              TextFormField(decoration: InputDecoration(hintText: "Address")),
+              Container(color: Colors.transparent),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(24),
+        child: ElevatedButton(onPressed: () {}, child: Text("Update Profile")),
       ),
     );
   }
@@ -45,8 +54,8 @@ class Usercircleavatar extends StatelessWidget {
           backgroundImage: AssetImage("assets/images/Ellipse 2 (1).png"),
         ),
         Positioned(
-          bottom: 8,
-          right: 8,
+          bottom: 12,
+          right: 12,
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
