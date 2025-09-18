@@ -1,4 +1,4 @@
-import 'package:bookia/feature/auth/login/loginscreen.dart';
+import 'package:bookia/feature/auth/register/registerscreen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Loginscreen()
+      home: Registerscreen()
     );
   }
 }
