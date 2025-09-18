@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 
-class Passwordchangedsuccessfullyscreen extends StatelessWidget {
-  const Passwordchangedsuccessfullyscreen({super.key});
+class Congratulationscreen extends StatelessWidget {
+  const Congratulationscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,16 @@ class Passwordchangedsuccessfullyscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Lottie.asset("assets/icons/Succes.json",),
+              Lottie.asset("assets/icons/Succes.json"),
               Gap(40),
-              Text("Password Changed!"),
+              Text("SUCCESS!"),
               Gap(10),
-              Text("Your password has been changed\nsuccessfully.", textAlign: TextAlign.center,),
+              Text(
+                "Your order will be delivered soon.\nThank you for choosing our app!",
+                textAlign: TextAlign.center,
+              ),
               Gap(40),
-              ElevatedButton(onPressed: (){}, child: Text("Back to Login")),
+              ElevatedButton(onPressed: () {}, child: Text("Back to Home")),
             ],
           ),
         ),

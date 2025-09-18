@@ -1,4 +1,5 @@
 
+import 'package:bookia/feature/cart/success/congratulationscreen.dart';
 import 'package:bookia/feature/profile/updatepassword/editpassword/editpassword.dart';
 import 'package:bookia/feature/profile/updateprofile/editptofile/editprofilescreen.dart';
 
@@ -13,6 +14,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: Editpassword());
+    return const MaterialApp(home: Congratulationscreen());
   }
 }
