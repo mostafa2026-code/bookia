@@ -57,14 +57,10 @@ class Mylisttileprofile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      shadowColor: Color(0xff8A959E),
-      child: ListTile(
-        title: Text(title),
-        trailing: Icon(Icons.arrow_forward_ios),
-        onTap: ontap,
-      ),
+    return ListTile(
+      title: Text(title),
+      trailing: Icon(Icons.arrow_forward_ios),
+      onTap: ontap,
     );
   }
 }
