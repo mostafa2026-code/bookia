@@ -1,5 +1,4 @@
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/auth/register/registerscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
