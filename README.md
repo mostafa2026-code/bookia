@@ -55,3 +55,50 @@ The app has a clean and user-friendly design that guides users through every ste
 ```bash
 git clone https://github.com/mostafa2026-code/bookia.git
 cd bookia
+2️⃣ Install Dependencies
+For Flutter:
+flutter pub get
+
+For React Native:
+npm install
+# or
+yarn install
+
+3️⃣ Configure Firebase
+
+Create a new Firebase project.
+
+Enable Authentication and Firestore Database.
+
+Add your Firebase configuration to the app.
+
+4️⃣ Run the App
+For Flutter:
+flutter run
+
+For React Native:
+npm run android
+npm run ios
+
+✅ Project Status
+
+This project is actively being developed.
+Future plans include:
+
+🔍 Advanced search and filtering
+
+🔔 Push notifications for offers and updates
+
+💳 Payment gateway integration
+
+👨‍💻 Author
+
+Developed with ❤️ by Mostafa
+🔗 GitHub Profile
+
+
+---
+
+كدا كله مقفول بالـ ``` صح وهيظهر منسق تمام في GitHub 🎯  
+
+تحب أجمعلك **كل الأقسام (Overview + Features + Tech + Structure + Installation)** في ملف واحد كامل `README.md` وأبعتهولك نسخة نه
