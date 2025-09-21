@@ -1,19 +1,29 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:pinput/pinput.dart';
 
 @immutable
-// ignore: must_be_immutable
-class Otpvericationscreen extends StatelessWidget {
-  Otpvericationscreen({super.key});
+class Otpvericationscreen extends StatefulWidget {
+  const Otpvericationscreen({super.key});
 
-  TextEditingController one = TextEditingController();
-  TextEditingController two = TextEditingController();
-  TextEditingController three = TextEditingController();
-  TextEditingController four = TextEditingController();
-  late final List<TextEditingController> controllors = [one, two, three, four];
+  @override
+  State<Otpvericationscreen> createState() => _OtpvericationscreenState();
+}
+
+class _OtpvericationscreenState extends State<Otpvericationscreen> {
+  final TextEditingController otp_controller = TextEditingController();
+  final FocusNode otp_focus = FocusNode();
+
+  @override
+  void dispose() {
+    super.dispose();
+    otp_controller.dispose();
+    otp_focus.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +47,19 @@ class Otpvericationscreen extends StatelessWidget {
                   style: MytextStyles.sub16_400(),
                 ),
                 Gap(32),
-                Row(
-                  spacing: 20,
-                  children: List.generate(4, (index) {
-                    return Expanded(
-                      child: TextFormField(
-                        controller: controllors[index],
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  }),
+                Pinput(
+                  controller: otp_controller,
+                  focusNode: otp_focus
+                  ,length: 4,
+                  focusedPinTheme: PinTheme(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color:Mycolors.lightPrimary),
+                    ),
+                  ),
                 ),
+
                 Gap(32),
                 Mainbottm(onpressed: () {}, title: "Verify"),
               ],
