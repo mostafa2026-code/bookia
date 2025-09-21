@@ -2,6 +2,7 @@ import 'package:bookia/core/utils/functions/navigation.dart';
 import 'package:bookia/feature/welcome/welcomescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 
 class Splashacreen extends StatefulWidget {
   const Splashacreen({super.key});
@@ -27,7 +28,7 @@ class _SplashacreenState extends State<Splashacreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(child: SvgPicture.asset("assets/images/logo 2.svg")),
+          Center(child: Lottie.asset("assets/icons/Books.json")),
           Center(child: Text("Order Your Book Now!")),
         ],
       ),

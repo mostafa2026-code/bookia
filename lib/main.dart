@@ -1,5 +1,5 @@
 import 'package:bookia/core/utils/themes/mythemes.dart';
-import 'package:bookia/feature/auth/passwordchangedsuccess/passwordchangedsuccessfullyscreen.dart';
+import 'package:bookia/feature/auth/otpverication/otpvericationscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Passwordchangedsuccessfullyscreen(),
+      home: Otpvericationscreen(),
       theme: Mythemes.lightTheme(),
     );
   }
