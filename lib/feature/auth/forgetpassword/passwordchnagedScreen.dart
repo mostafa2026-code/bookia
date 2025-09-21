@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';

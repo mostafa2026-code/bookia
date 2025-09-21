@@ -1,7 +1,6 @@
 import 'package:bookia/core/utils/functions/navigation.dart';
 import 'package:bookia/feature/welcome/welcomescreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 
 class Splashacreen extends StatefulWidget {
