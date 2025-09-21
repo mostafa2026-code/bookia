@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -16,6 +17,7 @@ class Otpvericationscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -24,8 +26,6 @@ class Otpvericationscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BackButton(),
-                Gap(32),
                 Text(
                   "OTP Verification",
                   style: MytextStyles.main24_400().copyWith(fontSize: 32),

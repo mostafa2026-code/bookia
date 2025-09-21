@@ -1,5 +1,6 @@
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class Profilescreen extends StatelessWidget {
@@ -9,9 +10,7 @@ class Profilescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.logout_outlined)),
-        ],
+        actions: [SvgPicture.asset("assets/images/logout.svg")],
         title: Text("Profile"),
       ),
       body: Padding(
@@ -68,7 +67,6 @@ class Mylisttileprofile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      
       title: Text(
         title,
         style: MytextStyles.main16_400().copyWith(fontSize: 18),

@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class Editpassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -17,8 +19,7 @@ class Editpassword extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Arrowbackcontainer(),
-                Gap(48),
+              
                 Center(
                   child: Text(
                     "New Password",

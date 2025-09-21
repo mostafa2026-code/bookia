@@ -1,15 +1,16 @@
 // ignore: file_names
+import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class Passwordchnagedscreen extends StatelessWidget {
-  const Passwordchnagedscreen({super.key});
+class Forgetpassword extends StatelessWidget {
+  const Forgetpassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(24),
@@ -18,8 +19,6 @@ class Passwordchnagedscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Arrowbackcontainer(),
-                Gap(32),
                 Text(
                   "Forgot Password?",
                   style: MytextStyles.main24_400().copyWith(fontSize: 30),

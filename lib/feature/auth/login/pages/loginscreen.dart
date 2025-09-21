@@ -1,5 +1,5 @@
+import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -10,6 +10,7 @@ class Loginscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -18,8 +19,6 @@ class Loginscreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Arrowbackcontainer(),
-                Gap(32),
                 Text(
                   "Welcome back! Glad to see you, Again!",
                   style: MytextStyles.main24_400().copyWith(fontSize: 30),

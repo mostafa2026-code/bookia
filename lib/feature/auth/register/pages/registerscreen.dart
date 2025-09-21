@@ -1,5 +1,6 @@
+import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -9,6 +10,7 @@ class Registerscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -18,9 +20,10 @@ class Registerscreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Arrowbackcontainer(),
-                  Gap(32),
-                  Text("Hello! Register to get started", style: MytextStyles.main24_400().copyWith(fontSize: 30),),
+                  Text(
+                    "Hello! Register to get started",
+                    style: MytextStyles.main24_400().copyWith(fontSize: 30),
+                  ),
                   Gap(32),
                   TextFormField(
                     decoration: InputDecoration(hintText: "Username"),
@@ -67,7 +70,7 @@ class Registerscreen extends StatelessWidget {
             TextButton(
               onPressed: () {},
               style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
-              child: Text(" Login Now", style: MytextStyles.textbottomstyle(),),
+              child: Text(" Login Now", style: MytextStyles.textbottomstyle()),
             ),
           ],
         ),

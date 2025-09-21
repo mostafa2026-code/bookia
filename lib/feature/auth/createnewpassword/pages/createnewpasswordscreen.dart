@@ -1,4 +1,5 @@
-import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
+import 'package:bookia/component/widgets/myappbar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -8,6 +9,7 @@ class Createnewpasswordscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ArrowbackAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -16,8 +18,7 @@ class Createnewpasswordscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Arrowbackcontainer(),
-                Gap(32),
+
                 Text("Create new password"),
                 Text(
                   "Your new password must be unique from those previously used.",
