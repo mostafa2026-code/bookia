@@ -1,3 +1,4 @@
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/utils/themes/mythemes.dart';
 import 'package:bookia/feature/auth/otpverication/pages/otpvericationscreen.dart';
 
@@ -12,8 +13,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Otpvericationscreen(),
+    return MaterialApp.router(
+      routerConfig: MyRouts().myroutes,
       theme: Mythemes.lightTheme(),
     );
   }
