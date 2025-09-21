@@ -18,38 +18,23 @@ class Welcomescreen extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Gap(150),
-                SvgPicture.asset("assets/images/logo 2.svg"),
-                Text("Order Your Book Now!", style: MytextStyles.main20_400()),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(24),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Mainbottm(onpressed: () {}, title: "Register"),
-                  Gap(32),
-                  Mainbottm(
-                    onpressed: () {},
-                    title: "Register",
-                    fillColor: Colors.white,
-                    textColor: Mycolors.lightPrimary,
-                  ),
-                  Gap(150),
-                ],
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Spacer(flex: 1),
+              SvgPicture.asset("assets/images/logo 2.svg"),
+              Text("Order Your Book Now!", style: MytextStyles.main20_400()),
+              Spacer(flex: 2),
+              Mainbottm(onpressed: () {}, title: "Register"),
+              Gap(32),
+              Mainbottm(
+                onpressed: () {},
+                title: "Register",
+                fillColor: Colors.white,
+                textColor: Mycolors.lightPrimary,
               ),
-            ),
+              Spacer(flex: 1),
+            ],
           ),
         ],
       ),
