@@ -1,5 +1,6 @@
 import 'package:bookia/core/utils/themes/mythemes.dart';
-import 'package:bookia/feature/auth/otpverication/otpvericationscreen.dart';
+import 'package:bookia/feature/auth/otpverication/pages/otpvericationscreen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
