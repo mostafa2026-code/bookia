@@ -1,5 +1,7 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/home/pages/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
@@ -33,7 +35,12 @@ class Congratulationscreen extends StatelessWidget {
                 style: MytextStyles.sub16_400(),
               ),
               Gap(40),
-              Mainbottm(onpressed: () {}, title: "Back to Home"),
+              Mainbottm(
+                onpressed: () {
+                  MyNavigation.go(context, Homescreen());
+                },
+                title: "Back to Home",
+              ),
             ],
           ),
         ),

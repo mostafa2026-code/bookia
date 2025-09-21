@@ -1,6 +1,8 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/auth/otpverication/pages/otpvericationscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -53,7 +55,12 @@ class Editpassword extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24),
-        child: Mainbottm(onpressed: () {}, title: "Update Password"),
+        child: Mainbottm(
+          onpressed: () {
+            MyNavigation.pushReplace(context, Otpvericationscreen());
+          },
+          title: "Update Password",
+        ),
       ),
     );
   }

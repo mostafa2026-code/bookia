@@ -11,7 +11,7 @@ class MyNavigation {
   }
 
   static pop(BuildContext context) {
-    context.pop();
+    context.pop(context);
   }
 
   static go(BuildContext context, to) {
