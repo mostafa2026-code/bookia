@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
@@ -33,13 +34,7 @@ class Forgetpassword extends StatelessWidget {
                 ),
                 Gap(32),
                 Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Send Code",
-                      style: MytextStyles.elevatedbottomtextstyle(),
-                    ),
-                  ),
+                  child: Mainbottm(onpressed: () {}, title: "Send Code"),
                 ),
                 Gap(32),
               ],

@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -31,13 +32,7 @@ class Passwordchangedsuccessfullyscreen extends StatelessWidget {
                 style: MytextStyles.sub14_400(),
               ),
               Gap(40),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Back to Login",
-                  style: MytextStyles.elevatedbottomtextstyle(),
-                ),
-              ),
+              Mainbottm(onpressed: () {}, title: "Back to Login"),
             ],
           ),
         ),

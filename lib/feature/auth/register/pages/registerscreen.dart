@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 
@@ -46,13 +47,7 @@ class Registerscreen extends StatelessWidget {
                   ),
                   Gap(32),
                   Center(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Register",
-                        style: MytextStyles.elevatedbottomtextstyle(),
-                      ),
-                    ),
+                    child: Mainbottm(onpressed: () {}, title: "Register"),
                   ),
                 ],
               ),

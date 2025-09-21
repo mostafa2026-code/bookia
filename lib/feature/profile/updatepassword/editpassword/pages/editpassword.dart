@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
@@ -19,7 +20,6 @@ class Editpassword extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              
                 Center(
                   child: Text(
                     "New Password",
@@ -54,13 +54,7 @@ class Editpassword extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24),
-        child: ElevatedButton(
-          onPressed: () {},
-          child: Text(
-            "Update Password",
-            style: MytextStyles.elevatedbottomtextstyle(),
-          ),
-        ),
+        child: Mainbottm(onpressed: () {}, title: "Update Password"),
       ),
     );
   }

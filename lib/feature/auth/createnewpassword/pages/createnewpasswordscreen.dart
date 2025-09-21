@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 
 import 'package:flutter/material.dart';
@@ -18,7 +19,6 @@ class Createnewpasswordscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Text("Create new password"),
                 Text(
                   "Your new password must be unique from those previously used.",
@@ -39,10 +39,7 @@ class Createnewpasswordscreen extends StatelessWidget {
                 ),
                 Gap(100),
                 Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Reset Password"),
-                  ),
+                  child: Mainbottm(onpressed: () {}, title: "Reset Password"),
                 ),
               ],
             ),

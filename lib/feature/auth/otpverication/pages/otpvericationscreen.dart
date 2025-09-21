@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +49,7 @@ class Otpvericationscreen extends StatelessWidget {
                   }),
                 ),
                 Gap(32),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Verify",
-                    style: MytextStyles.elevatedbottomtextstyle(),
-                  ),
-                ),
+                Mainbottm(onpressed: () {}, title: "Verify"),
               ],
             ),
           ),

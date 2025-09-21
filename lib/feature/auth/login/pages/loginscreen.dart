@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
@@ -49,13 +50,7 @@ class Loginscreen extends StatelessWidget {
                 ),
                 Gap(32),
                 Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Log In",
-                      style: MytextStyles.elevatedbottomtextstyle(),
-                    ),
-                  ),
+                  child: Mainbottm(onpressed: () {}, title: "Log In"),
                 ),
                 Gap(32),
                 Row(

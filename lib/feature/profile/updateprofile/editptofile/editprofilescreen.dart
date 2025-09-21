@@ -1,3 +1,4 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/core/utils/widgets/arrowbackcontainer.dart';
 import 'package:flutter/material.dart';
@@ -50,13 +51,7 @@ class Editprofilescreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24),
-        child: ElevatedButton(
-          onPressed: () {},
-          child: Text(
-            "Update Profile",
-            style: MytextStyles.elevatedbottomtextstyle(),
-          ),
-        ),
+        child: Mainbottm(onpressed: (){}, title: "Update Profile")
       ),
     );
   }

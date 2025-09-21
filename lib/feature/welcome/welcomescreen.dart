@@ -1,3 +1,5 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -36,20 +38,13 @@ class Welcomescreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Log In",
-                      style: MytextStyles.elevatedbottomtextstyle(),
-                    ),
-                  ),
+                  Mainbottm(onpressed: () {}, title: "Register"),
                   Gap(32),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Register",
-                      style: MytextStyles.elevatedbottomtextstyle(),
-                    ),
+                  Mainbottm(
+                    onpressed: () {},
+                    title: "Register",
+                    fillColor: Colors.white,
+                    textColor: Mycolors.lightPrimary,
                   ),
                   Gap(150),
                 ],
