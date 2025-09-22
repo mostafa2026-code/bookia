@@ -1,8 +1,8 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/auth/login/pages/loginscreen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -66,7 +66,7 @@ class Registerscreen extends StatelessWidget {
             Text("Already have an account?"),
             TextButton(
               onPressed: () {
-                MyNavigation.pushReplace(context, Loginscreen());
+                MyNavigation.pushReplace(context, MyRouts.login, null);
               },
               style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
               child: Text(" Login Now", style: MytextStyles.textbottomstyle()),

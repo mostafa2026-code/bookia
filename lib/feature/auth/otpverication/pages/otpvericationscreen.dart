@@ -15,7 +15,9 @@ class Otpvericationscreen extends StatefulWidget {
 }
 
 class _OtpvericationscreenState extends State<Otpvericationscreen> {
+  // ignore: non_constant_identifier_names
   final TextEditingController otp_controller = TextEditingController();
+  // ignore: non_constant_identifier_names
   final FocusNode otp_focus = FocusNode();
 
   @override
@@ -47,17 +49,22 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                   style: MytextStyles.sub16_400(),
                 ),
                 Gap(32),
-                Pinput(
-                  controller: otp_controller,
-                  focusNode: otp_focus
-                  ,length: 4,
-                  focusedPinTheme: PinTheme(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color:Mycolors.lightPrimary),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Pinput(
+                      controller: otp_controller,
+                      focusNode: otp_focus,
+                      length: 4,
+                      focusedPinTheme: PinTheme(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Mycolors.lightPrimary),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
 
                 Gap(32),

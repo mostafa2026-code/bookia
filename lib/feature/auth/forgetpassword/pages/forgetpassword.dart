@@ -1,6 +1,8 @@
 // ignore: file_names
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/routes/myroutes.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -34,7 +36,12 @@ class Forgetpassword extends StatelessWidget {
                 ),
                 Gap(32),
                 Center(
-                  child: Mainbottm(onpressed: () {}, title: "Send Code"),
+                  child: Mainbottm(
+                    onpressed: () {
+                      MyNavigation.push(context, MyRouts.otpverication, null);
+                    },
+                    title: "Send Code",
+                  ),
                 ),
                 Gap(32),
               ],

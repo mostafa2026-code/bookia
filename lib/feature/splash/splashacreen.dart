@@ -1,6 +1,5 @@
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
-import 'package:bookia/core/utils/functions/navigation.dart';
-import 'package:bookia/feature/welcome/welcomescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -17,7 +16,7 @@ class _SplashacreenState extends State<Splashacreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () async{
      // ignore: use_build_context_synchronously
-    await MyNavigation.pushReplace(context, Welcomescreen());
+    MyNavigation.pushReplace(context, MyRouts.welcome , null );
     });
   }
 

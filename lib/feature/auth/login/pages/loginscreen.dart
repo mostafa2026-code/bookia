@@ -1,9 +1,8 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/auth/forgetpassword/pages/forgetpassword.dart';
-import 'package:bookia/feature/auth/register/pages/registerscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -48,7 +47,7 @@ class Loginscreen extends StatelessWidget {
                         style: MytextStyles.textbottomstyle(),
                       ),
                       onPressed: () {
-                        MyNavigation.push(context, Forgetpassword());
+                        MyNavigation.push(context, MyRouts.forgetpassword, null);
                       },
                     ),
                   ],
@@ -100,7 +99,7 @@ class Loginscreen extends StatelessWidget {
             Text("Don’t have an account? "),
             TextButton(
               onPressed: () {
-                MyNavigation.pushReplace(context, Registerscreen());
+                MyNavigation.pushReplace(context, MyRouts.register, null);
               },
               style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
               child: Text(
