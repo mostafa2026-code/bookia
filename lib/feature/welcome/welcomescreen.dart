@@ -1,9 +1,8 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/auth/login/pages/loginscreen.dart';
-import 'package:bookia/feature/auth/register/pages/registerscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -30,14 +29,14 @@ class Welcomescreen extends StatelessWidget {
               Spacer(flex: 2),
               Mainbottm(
                 onpressed: () {
-                  MyNavigation.push(context, Loginscreen());
+                  MyNavigation.push(context, MyRouts.login);
                 },
                 title: "Log In",
               ),
               Gap(32),
               Mainbottm(
                 onpressed: () {
-                  MyNavigation.push(context, Registerscreen());
+                  MyNavigation.push(context, MyRouts.register);
                 },
                 title: "Register",
                 fillColor: Colors.white,

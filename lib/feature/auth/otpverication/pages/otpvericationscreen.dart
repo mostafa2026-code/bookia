@@ -15,7 +15,9 @@ class Otpvericationscreen extends StatefulWidget {
 }
 
 class _OtpvericationscreenState extends State<Otpvericationscreen> {
+  // ignore: non_constant_identifier_names
   final TextEditingController otp_controller = TextEditingController();
+  // ignore: non_constant_identifier_names
   final FocusNode otp_focus = FocusNode();
 
   @override

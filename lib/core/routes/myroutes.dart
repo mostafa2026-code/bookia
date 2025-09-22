@@ -1,3 +1,4 @@
+import 'package:bookia/feature/auth/forgetpassword/pages/forgetpassword.dart';
 import 'package:bookia/feature/auth/login/pages/loginscreen.dart';
 import 'package:bookia/feature/auth/otpverication/pages/otpvericationscreen.dart';
 import 'package:bookia/feature/auth/register/pages/registerscreen.dart';
@@ -14,7 +15,7 @@ class MyRouts {
   static const String home = '/home';
   static const String login = '/login';
   static const String register = '/signup';
-  
+  static const String forgetpassword = '/forgetpassword';
   static const String otpverication = '/otpverication';
   static const String profile = '/profile';
   static const String editprofile = '/editprofile';
@@ -52,9 +53,9 @@ class MyRouts {
         },
       ),
       GoRoute(
-        path:otpverication ,
+        path: otpverication,
         builder: (context, state) {
-          return  Otpvericationscreen();
+          return Otpvericationscreen();
         },
       ),
       GoRoute(
@@ -69,8 +70,12 @@ class MyRouts {
           return const Editprofilescreen();
         },
       ),
-      
-      
+      GoRoute(
+        path: forgetpassword,
+        builder: (context, state) {
+          return const Forgetpassword();
+        },
+      ),
     ],
   );
 }
