@@ -1,0 +1,3 @@
+class MYAPiException implements Exception {
+  
+}
