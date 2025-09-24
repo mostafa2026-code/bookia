@@ -66,7 +66,11 @@ class Registerscreen extends StatelessWidget {
             Text("Already have an account?"),
             TextButton(
               onPressed: () {
+<<<<<<< HEAD
                 MyNavigation.pushReplace(context, MyRouts.login, null);
+=======
+                MyNavigation.pushReplace(context, MyRouts.login);
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
               },
               style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
               child: Text(" Login Now", style: MytextStyles.textbottomstyle()),

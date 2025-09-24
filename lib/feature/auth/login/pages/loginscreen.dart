@@ -47,7 +47,11 @@ class Loginscreen extends StatelessWidget {
                         style: MytextStyles.textbottomstyle(),
                       ),
                       onPressed: () {
+<<<<<<< HEAD
                         MyNavigation.push(context, MyRouts.forgetpassword, null);
+=======
+                        MyNavigation.push(context, MyRouts.forgetpassword);
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
                       },
                     ),
                   ],
@@ -99,7 +103,11 @@ class Loginscreen extends StatelessWidget {
             Text("Don’t have an account? "),
             TextButton(
               onPressed: () {
+<<<<<<< HEAD
                 MyNavigation.pushReplace(context, MyRouts.register, null);
+=======
+                MyNavigation.pushReplace(context, MyRouts.register);
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
               },
               style: TextButton.styleFrom(padding: EdgeInsets.all(1)),
               child: Text(

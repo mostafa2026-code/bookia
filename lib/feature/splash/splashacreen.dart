@@ -16,7 +16,11 @@ class _SplashacreenState extends State<Splashacreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () async{
      // ignore: use_build_context_synchronously
+<<<<<<< HEAD
     MyNavigation.pushReplace(context, MyRouts.welcome , null );
+=======
+    await MyNavigation.pushReplace(context, MyRouts.welcome);
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
     });
   }
 

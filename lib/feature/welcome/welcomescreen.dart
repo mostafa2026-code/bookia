@@ -20,6 +20,7 @@ class Welcomescreen extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
           ),
+<<<<<<< HEAD
           Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
@@ -47,6 +48,32 @@ class Welcomescreen extends StatelessWidget {
                 Spacer(flex: 1),
               ],
             ),
+=======
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Spacer(flex: 1),
+              SvgPicture.asset("assets/images/logo 2.svg"),
+              Text("Order Your Book Now!", style: MytextStyles.main20_400()),
+              Spacer(flex: 2),
+              Mainbottm(
+                onpressed: () {
+                  MyNavigation.push(context, MyRouts.login);
+                },
+                title: "Log In",
+              ),
+              Gap(32),
+              Mainbottm(
+                onpressed: () {
+                  MyNavigation.push(context, MyRouts.register);
+                },
+                title: "Register",
+                fillColor: Colors.white,
+                textColor: Mycolors.lightPrimary,
+              ),
+              Spacer(flex: 1),
+            ],
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
           ),
         ],
       ),

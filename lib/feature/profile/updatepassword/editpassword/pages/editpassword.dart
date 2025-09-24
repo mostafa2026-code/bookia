@@ -57,7 +57,11 @@ class Editpassword extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Mainbottm(
           onpressed: () {
+<<<<<<< HEAD
             MyNavigation.pushReplace(context, MyRouts.otpverication, null);
+=======
+            MyNavigation.pushReplace(context, MyRouts.otpverication);
+>>>>>>> 29f1a12e6da43db7f1200e5f2a56bb57025db2ba
           },
           title: "Update Password",
         ),
