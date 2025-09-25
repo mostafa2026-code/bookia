@@ -9,11 +9,16 @@ class WishListContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 300,
       decoration: BoxDecoration(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset("image"),
+          Image.asset(
+            "assets/images/Rectangle 22 (1).png",
+            height: 100,
+            width: 70,
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

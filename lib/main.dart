@@ -1,6 +1,5 @@
-import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/utils/themes/mythemes.dart';
-
+import 'package:bookia/feature/wishlist/page/wishlistscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: MyRouts().myroutes,
-      theme: Mythemes.lightTheme(),
-    );
+    return MaterialApp(home: Wishlistscreen(), theme: Mythemes.lightTheme());
   }
 }

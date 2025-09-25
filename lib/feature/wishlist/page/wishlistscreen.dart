@@ -13,13 +13,13 @@ class Wishlistscreen extends StatelessWidget {
         centerTitle: true,
         title: Text("Wishlist", style: MytextStyles.main24_400()),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            WishListListView(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [WishListListView()],
+          ),
         ),
       ),
     );

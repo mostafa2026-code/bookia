@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class AddToCartDetails extends StatelessWidget {
-  const AddToCartDetails({
-    super.key,
-    required this.model,
-  });
+  const AddToCartDetails({super.key, required this.model});
 
   final ModelDetails model;
 
@@ -21,8 +18,11 @@ class AddToCartDetails extends StatelessWidget {
           model.price,
           style: MytextStyles.main16_400().copyWith(fontSize: 18),
         ),
-        Gap(20),
-        Expanded(child: Mainbottm(onpressed: (){}, title: "Add To Cart")),
+
+        Gap(30),
+        Expanded(
+          child: Mainbottm(onpressed: () {}, title: "Add To Cart"),
+        ),
       ],
     );
   }

@@ -4,10 +4,7 @@ import 'package:bookia/feature/bookdetails/widget/add_to_cart_details.dart';
 import 'package:flutter/material.dart';
 
 class DetialsBody extends StatelessWidget {
-  const DetialsBody({
-    super.key,
-    required this.model,
-  });
+  const DetialsBody({super.key, required this.model});
 
   final ModelDetails model;
 
@@ -18,7 +15,7 @@ class DetialsBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(model.image),
+          Image.asset(model.image, height: 270, width: 180),
           Text(
             model.title,
             style: MytextStyles.main24_400().copyWith(fontSize: 30),
@@ -27,7 +24,8 @@ class DetialsBody extends StatelessWidget {
             model.author,
             style: MytextStyles.main16_400().copyWith(fontSize: 18),
           ),
-          AddToCartDetails(model: model)
+          Spacer(),
+          AddToCartDetails(model: model),
         ],
       ),
     );
