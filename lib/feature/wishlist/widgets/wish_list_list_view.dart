@@ -1,4 +1,4 @@
-import 'package:bookia/feature/wishlist/widgets/cart_item_container.dart';
+import 'package:bookia/feature/wishlist/widgets/wishlist_container.dart';
 import 'package:flutter/material.dart';
 
 class WishListListView extends StatelessWidget {
