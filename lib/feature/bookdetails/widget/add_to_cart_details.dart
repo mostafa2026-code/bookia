@@ -1,0 +1,29 @@
+import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/bookdetails/model_details.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+class AddToCartDetails extends StatelessWidget {
+  const AddToCartDetails({
+    super.key,
+    required this.model,
+  });
+
+  final ModelDetails model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          model.price,
+          style: MytextStyles.main16_400().copyWith(fontSize: 18),
+        ),
+        Gap(20),
+        Expanded(child: Mainbottm(onpressed: (){}, title: "Add To Cart")),
+      ],
+    );
+  }
+}
