@@ -21,6 +21,7 @@ class HomeBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Image.asset("name"),
                 Text(
                   "Best Seller",
                   style: MytextStyles.main24_400().copyWith(fontSize: 30),
