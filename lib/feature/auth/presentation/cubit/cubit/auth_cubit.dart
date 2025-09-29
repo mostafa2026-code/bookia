@@ -1,3 +1,6 @@
+import 'package:bookia/feature/auth/data/model/my_auth_r_esponse/my_auth_r_esponse.dart';
+import 'package:bookia/feature/auth/data/model/request/auth_params.dart';
+import 'package:bookia/feature/auth/data/repo/my_auth_repo.dart';
 import 'package:bookia/feature/auth/presentation/cubit/state/auth_states.dart';
 
 import 'package:bloc/bloc.dart';
@@ -9,23 +12,41 @@ class AuthCubit extends Cubit<AuthStates> {
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   AuthCubit() : super(AuthInitialState());
-  void register() {
+  void register() async {
     emit(AuthLoadingState());
-
-    emit(AuthSuccessState());
-
-    emit(AuthErrorState());
+    MyAuthREsponse? registerResponse = await MyAuthRepo.register(
+      AuthParams(
+        username: namecontroller.text,
+        email: emailcontroller.text,
+        password: passwordcontroller.text,
+        confirmPassword: confirmpasswordcontroller.text,
+      ),
+    );
+    if (registerResponse != null) {
+      emit(AuthSuccessState());
+    } else {
+      emit(AuthErrorState());
+    }
   }
 
-  void login() {
+  void login()async {
     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
-
-    emit(AuthErrorState());
+    MyAuthREsponse? loginResponse = await MyAuthRepo.login(
+      AuthParams(
+        email: emailcontroller.text,
+        password: passwordcontroller.text,
+      ),
+    );
+if (loginResponse != null) {
+      emit(AuthSuccessState());
+    } else {
+      emit(AuthErrorState());
+    }
+    
   }
 
-  void forgetPassword() {
+  void forgetPassword()async {
     emit(AuthLoadingState());
 
     emit(AuthSuccessState());
