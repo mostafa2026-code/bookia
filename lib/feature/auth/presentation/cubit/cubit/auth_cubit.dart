@@ -7,11 +7,13 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
-  TextEditingController namecontroller = TextEditingController();
-  TextEditingController emailcontroller = TextEditingController();
-  TextEditingController passwordcontroller = TextEditingController();
-  TextEditingController confirmpasswordcontroller = TextEditingController();
   AuthCubit() : super(AuthInitialState());
+  final TextEditingController namecontroller = TextEditingController();
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController confirmpasswordcontroller =
+      TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   void register() async {
     emit(AuthLoadingState());
     MyAuthREsponse? registerResponse = await MyAuthRepo.register(
@@ -29,7 +31,7 @@ class AuthCubit extends Cubit<AuthStates> {
     }
   }
 
-  void login()async {
+  void login() async {
     emit(AuthLoadingState());
 
     MyAuthREsponse? loginResponse = await MyAuthRepo.login(
@@ -38,15 +40,14 @@ class AuthCubit extends Cubit<AuthStates> {
         password: passwordcontroller.text,
       ),
     );
-if (loginResponse != null) {
+    if (loginResponse != null) {
       emit(AuthSuccessState());
     } else {
       emit(AuthErrorState());
     }
-    
   }
 
-  void forgetPassword()async {
+  void forgetPassword() async {
     emit(AuthLoadingState());
 
     emit(AuthSuccessState());
@@ -100,5 +101,18 @@ if (loginResponse != null) {
     emit(AuthSuccessState());
 
     emit(AuthErrorState());
+  }
+
+  bool isvalidEmail(String email) {
+    final RegExp regExp = RegExp(
+      r"^(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@"
+      r"(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$",
+    );
+    return regExp.hasMatch(email);
+  }
+
+  bool isvalidpassword(String email) {
+    final RegExp simplePass = RegExp(r'^.{8,}$');
+    return simplePass.hasMatch(email);
   }
 }

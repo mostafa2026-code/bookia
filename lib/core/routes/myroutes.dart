@@ -1,3 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/forgetpassword/pages/forgetpassword.dart';
 import 'package:bookia/feature/auth/presentation/login/pages/loginscreen.dart';
 import 'package:bookia/feature/auth/presentation/otpverication/pages/otpvericationscreen.dart';
@@ -49,7 +51,10 @@ class MyRouts {
       GoRoute(
         path: register,
         builder: (context, state) {
-          return const Registerscreen();
+          return BlocProvider(
+            create: (context) => AuthCubit(),
+            child: const Registerscreen(),
+          );
         },
       ),
       GoRoute(
