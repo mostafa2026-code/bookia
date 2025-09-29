@@ -14,7 +14,7 @@ class AuthCubit extends Cubit<AuthStates> {
   final TextEditingController confirmpasswordcontroller =
       TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  void register() async {
+  Future<void> register() async {
     emit(AuthLoadingState());
     MyAuthREsponse? registerResponse = await MyAuthRepo.register(
       AuthParams(

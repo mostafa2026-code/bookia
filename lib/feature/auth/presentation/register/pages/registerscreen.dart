@@ -80,9 +80,11 @@ class Registerscreen extends StatelessWidget {
                     Gap(32),
                     Center(
                       child: Mainbottm(
-                        onpressed: () {
+                        onpressed: () async{
                           if (authcubit.formKey.currentState!.validate()) {
+                          await authcubit.register();
                             MyNavigation.pushReplace(
+                              // ignore: use_build_context_synchronously
                               context,
                               MyRouts.home,
                               null,
