@@ -5,7 +5,6 @@ import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/cubit/state/auth_states.dart';
-import 'package:bookia/feature/home/pages/homescreen.dart';
 import 'package:bookia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

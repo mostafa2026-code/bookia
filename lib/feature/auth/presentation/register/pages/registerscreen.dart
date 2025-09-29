@@ -120,7 +120,6 @@ class Registerscreen extends StatelessWidget {
             ),
           ),
         ),
-
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(24),
           child: Row(
