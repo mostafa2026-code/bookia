@@ -2,9 +2,7 @@ import 'package:bookia/feature/cart/cart/widgets/cart_item_container.dart';
 import 'package:flutter/material.dart';
 
 class CartListView extends StatelessWidget {
-  const CartListView({
-    super.key,
-  });
+  const CartListView({super.key});
 
   @override
   Widget build(BuildContext context) {

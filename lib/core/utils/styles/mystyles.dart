@@ -9,14 +9,15 @@ class MytextStyles {
       fontWeight: FontWeight.w400,
     );
   }
-  static TextStyle textbottomstyle(){
+
+  static TextStyle textbottomstyle() {
     return TextStyle(
       color: Mycolors.lightPrimary,
       fontSize: 16,
       fontWeight: FontWeight.w400,
     );
-
   }
+
   static TextStyle elevatedbottomtextstyleblack() {
     return TextStyle(
       color: Colors.black,
@@ -25,7 +26,6 @@ class MytextStyles {
     );
   }
 
-
   static TextStyle main16_400() {
     return TextStyle(
       color: Mycolors.lightTextPrimary,
@@ -33,6 +33,7 @@ class MytextStyles {
       fontWeight: FontWeight.w400,
     );
   }
+
   static TextStyle main16_600() {
     return TextStyle(
       color: Mycolors.lightTextPrimary,
@@ -40,6 +41,7 @@ class MytextStyles {
       fontWeight: FontWeight.w600,
     );
   }
+
   static TextStyle main14_600() {
     return TextStyle(
       color: Mycolors.lightTextPrimary,
@@ -71,6 +73,7 @@ class MytextStyles {
       fontWeight: FontWeight.w400,
     );
   }
+
   static TextStyle main24_600() {
     return TextStyle(
       color: Mycolors.lightTextPrimary,
@@ -87,7 +90,7 @@ class MytextStyles {
     );
   }
 
-  static TextStyle sub16_400(){
+  static TextStyle sub16_400() {
     return TextStyle(
       color: Mycolors.lightTextSecondary,
       fontSize: 16,
@@ -95,7 +98,7 @@ class MytextStyles {
     );
   }
 
-  static TextStyle sub16_600(){
+  static TextStyle sub16_600() {
     return TextStyle(
       color: Mycolors.lightTextSecondary,
       fontSize: 16,
@@ -103,7 +106,7 @@ class MytextStyles {
     );
   }
 
-  static TextStyle sub14_400(){
+  static TextStyle sub14_400() {
     return TextStyle(
       color: Mycolors.lightTextSecondary,
       fontSize: 14,
@@ -111,7 +114,7 @@ class MytextStyles {
     );
   }
 
-  static TextStyle sub14_600(){
+  static TextStyle sub14_600() {
     return TextStyle(
       color: Mycolors.lightTextSecondary,
       fontSize: 14,
@@ -135,8 +138,6 @@ class MytextStyles {
     );
   }
 
-
-
   static TextStyle maindark14_600() {
     return TextStyle(
       color: Mycolors.darkTextPrimary,
@@ -153,7 +154,7 @@ class MytextStyles {
     );
   }
 
-static TextStyle maindark20_400() {
+  static TextStyle maindark20_400() {
     return TextStyle(
       color: Mycolors.darkTextPrimary,
       fontSize: 20,
@@ -184,5 +185,4 @@ static TextStyle maindark20_400() {
       fontWeight: FontWeight.w600,
     );
   }
-
 }

@@ -51,7 +51,7 @@ class Editprofilescreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24),
-        child: Mainbottm(onpressed: (){}, title: "Update Profile")
+        child: Mainbottm(onpressed: () {}, title: "Update Profile"),
       ),
     );
   }

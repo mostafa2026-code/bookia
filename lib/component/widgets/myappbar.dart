@@ -11,7 +11,8 @@ class ArrowbackAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       title: GestureDetector(
         onTap: () => MyNavigation.pop(context),
-        child: SvgPicture.asset("assets/images/back.svg")),
+        child: SvgPicture.asset("assets/images/back.svg"),
+      ),
       automaticallyImplyLeading: false,
     );
   }

@@ -3,7 +3,6 @@ import 'package:bookia/feature/bookdetails/widget/detials_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 class DetailsScreen extends StatelessWidget {
   final ModelDetails model;
   const DetailsScreen({super.key, required this.model});

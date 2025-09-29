@@ -15,7 +15,9 @@ class Mycolors {
   static const Color lightDivider = Color(0xFFE5E7EB); // حدود/فواصل
 
   static const Color darkBackground = Color(0xFF111827); // خلفية رئيسية
-  static const Color darkSecondaryBackground = Color(0xFF1F2937); // كارد/كونتينر
+  static const Color darkSecondaryBackground = Color(
+    0xFF1F2937,
+  ); // كارد/كونتينر
   static const Color darkTextPrimary = Color(0xFFFFFFFF); // النص الأساسي
   static const Color darkTextSecondary = Color(0xFF9CA3AF); // النص الثانوي
   static const Color darkPrimary = Color(0xFF15a4d8); // زرار/هايلايت أساسي

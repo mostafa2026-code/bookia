@@ -1,30 +1,45 @@
+import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';
+import 'package:bookia/feature/auth/data/model/my_auth_r_esponse/my_auth_r_esponse.dart';
 import 'package:bookia/feature/auth/data/model/request/auth_params.dart';
 import 'package:dio/dio.dart';
 
 class MyAuthRepo {
-  static Future<Response> register() async {
-    AuthParams authParams = AuthParams();
+  static Future<MyAuthREsponse?> register(AuthParams params) async {
+    try {
+      Response myRes = await MyDioProvider.post(
+        endpoint: MyEndPoints.register,
+        body: params.fromObjectToJson(),
+      );
 
-    Response myRes = await MyDioProvider.post(
-      endpoint: MyEndPoints.register,
-      body: authParams.fromObjectToJson(),
-    );
-    if (myRes.statusCode == 201) {
-      return myRes;
-    } else {
-      throw Exception('Failed to register user');
+      if (myRes.statusCode == 201) {
+        return MyAuthREsponse.fromJson(myRes.data);
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
     }
   }
 
-  static Future<Response> login() async {
-    AuthParams authParams = AuthParams();
-    Response myRes = await MyDioProvider.post(
-      endpoint: MyEndPoints.login,
-      body: authParams.fromObjectToJson(),
-    );
-    return myRes;
+  static Future<MyAuthREsponse?> login(AuthParams params) async {
+    try {
+      Response myRes = await MyDioProvider.post(
+        endpoint: MyEndPoints.login,
+        body: params.fromObjectToJson(),
+      );
+      if (myRes.statusCode == 200) {
+        return MyAuthREsponse.fromJson(myRes.data);
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
   }
 
   static Future<Response> logout() async {

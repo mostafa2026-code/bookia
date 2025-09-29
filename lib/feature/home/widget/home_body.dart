@@ -36,10 +36,7 @@ class HomeBody extends StatelessWidget {
                     crossAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      
-                      
-                    );
+                    return Container();
                   },
                 ),
               ],

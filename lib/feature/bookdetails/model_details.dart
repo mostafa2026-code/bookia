@@ -5,5 +5,11 @@ class ModelDetails {
   final String price;
   final String image;
 
-  ModelDetails({required this.title, required this.author, required this.description, required this.price, required this.image});
+  ModelDetails({
+    required this.title,
+    required this.author,
+    required this.description,
+    required this.price,
+    required this.image,
+  });
 }

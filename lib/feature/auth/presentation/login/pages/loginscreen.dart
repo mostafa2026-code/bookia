@@ -47,7 +47,11 @@ class Loginscreen extends StatelessWidget {
                         style: MytextStyles.textbottomstyle(),
                       ),
                       onPressed: () {
-                        MyNavigation.push(context, MyRouts.forgetpassword, null);
+                        MyNavigation.push(
+                          context,
+                          MyRouts.forgetpassword,
+                          null,
+                        );
                       },
                     ),
                   ],
