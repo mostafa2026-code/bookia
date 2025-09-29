@@ -21,3 +21,12 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+
+void showloadingDialog(BuildContext context) async{
+  return showDialog(
+    context: context,
+    builder: (context) {
+      return const AlertDialog(content: CircularProgressIndicator());
+    },
+  );
+}
