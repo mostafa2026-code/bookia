@@ -70,7 +70,6 @@ class MyAuthRepo {
   }
 
   static Future<Response> resetPassword() async {
-    AuthParams authParams = AuthParams();
     Response myRes = await MyDioProvider.post(
       endpoint: MyEndPoints.resetPassword,
       body: {
