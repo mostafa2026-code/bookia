@@ -61,7 +61,7 @@ class Registerscreen extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
-                          } else if (authcubit.isvalidEmail(value) == false) {
+                          } else if (isvalidEmail(value) == false) {
                             return 'Please enter a valid email';
                           }
                           return null;
@@ -74,7 +74,7 @@ class Registerscreen extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
-                          } else if (authcubit.isvalidpassword(value) ==
+                          } else if (isvalidpassword(value) ==
                               false) {
                             return 'Password must be at least 8 characters long';
                           }

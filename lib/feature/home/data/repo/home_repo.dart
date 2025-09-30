@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 
 class HomeRepo {
-  Future<HomeResponse?> bestSellerBooks() async {
+  static Future<HomeResponse?> bestSellerBooks() async {
     try {
       Response bestsellerer = await MyDioProvider.get(
         endpoint: MyEndPoints.bestSellers,

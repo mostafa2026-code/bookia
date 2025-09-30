@@ -52,13 +52,22 @@ class MyAuthRepo {
     return myRes;
   }
 
-  static Future<Response> forgetPassword() async {
-    AuthParams authParams = AuthParams();
-    Response myRes = await MyDioProvider.post(
-      endpoint: MyEndPoints.sendForgetPasswordLink,
-      body: authParams.fromObjectToJson(),
-    );
-    return myRes;
+  static Future<MyAuthREsponse?> forgetPassword( AuthParams params) async {
+    try {
+     
+      Response myRes = await MyDioProvider.post(
+        endpoint: MyEndPoints.sendForgetPasswordLink,
+        body: params.fromObjectToJson(),
+      );
+      if (myRes.statusCode == 200) {
+        return MyAuthREsponse.fromJson(myRes.data);
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
   }
 
   static Future<Response> checkForgetPassword() async {

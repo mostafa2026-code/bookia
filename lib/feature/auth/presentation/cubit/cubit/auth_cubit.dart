@@ -103,16 +103,5 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(AuthErrorState());
   }
 
-  bool isvalidEmail(String email) {
-    final RegExp regExp = RegExp(
-      r"^(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*)@"
-      r"(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$",
-    );
-    return regExp.hasMatch(email);
-  }
-
-  bool isvalidpassword(String email) {
-    final RegExp simplePass = RegExp(r'^.{8,}$');
-    return simplePass.hasMatch(email);
-  }
+  
 }

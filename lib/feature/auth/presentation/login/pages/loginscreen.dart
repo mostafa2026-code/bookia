@@ -20,6 +20,7 @@ class Loginscreen extends StatelessWidget {
     return BlocListener<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is AuthErrorState) {
+          MyNavigation.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(state.errorMessage),
@@ -29,6 +30,7 @@ class Loginscreen extends StatelessWidget {
         } else if (state is AuthLoadingState) {
           showloadingDialog(context);
         } else if (state is AuthSuccessState) {
+          MyNavigation.pop(context);
           MyNavigation.pushReplace(context, MyRouts.home, null);
         }
       },
@@ -53,7 +55,7 @@ class Loginscreen extends StatelessWidget {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';
-                        } else if (authcubit.isvalidEmail(value) == false) {
+                        } else if (isvalidEmail(value) == false) {
                           return 'Please enter a valid email';
                         }
                         return null;
@@ -65,7 +67,7 @@ class Loginscreen extends StatelessWidget {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your password';
-                        } else if (authcubit.isvalidpassword(value) == false) {
+                        } else if (isvalidpassword(value) == false) {
                           return 'Password must be at least 8 characters long';
                         }
                         return null;
