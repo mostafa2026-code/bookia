@@ -1,4 +1,4 @@
-import 'package:bookia/feature/home/widget/home_body.dart';
+
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
@@ -9,7 +9,7 @@ class Homescreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [HomeBody()],
+        children: [],
       ),
     );
   }

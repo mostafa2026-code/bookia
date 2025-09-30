@@ -1,4 +1,4 @@
-import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+import 'dart:developer';
 
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';

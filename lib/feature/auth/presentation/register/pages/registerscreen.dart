@@ -18,16 +18,18 @@ class Registerscreen extends StatelessWidget {
     final AuthCubit authcubit = context.read<AuthCubit>();
     return BlocListener<AuthCubit, AuthStates>(
       listener: (context, state) {
-        if (state is AuthErrorState) {
+        if (state is AuthLoadingState) {
+          showloadingDialog(context);
+        } else if (state is AuthErrorState) {
+          MyNavigation.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(state.errorMessage),
               backgroundColor: Colors.red,
             ),
           );
-        } else if (state is AuthLoadingState) {
-          showloadingDialog(context);
         } else if (state is AuthSuccessState) {
+          MyNavigation.pop(context);
           MyNavigation.pushReplace(context, MyRouts.home, null);
         }
       },
@@ -50,10 +52,12 @@ class Registerscreen extends StatelessWidget {
                       ),
                       Gap(32),
                       TextFormField(
+                        controller: authcubit.namecontroller,
                         decoration: InputDecoration(hintText: "Username"),
                       ),
                       Gap(16),
                       TextFormField(
+                        controller: authcubit.emailcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
@@ -66,6 +70,7 @@ class Registerscreen extends StatelessWidget {
                       ),
                       Gap(16),
                       TextFormField(
+                        controller: authcubit.passwordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
@@ -82,6 +87,7 @@ class Registerscreen extends StatelessWidget {
                       ),
                       Gap(16),
                       TextFormField(
+                        controller: authcubit.confirmpasswordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please confirm your password';
@@ -102,12 +108,6 @@ class Registerscreen extends StatelessWidget {
                           onpressed: () async {
                             if (authcubit.formKey.currentState!.validate()) {
                               await authcubit.register();
-                              MyNavigation.pushReplace(
-                                // ignore: use_build_context_synchronously
-                                context,
-                                MyRouts.home,
-                                null,
-                              );
                             }
                           },
                           title: "Register",

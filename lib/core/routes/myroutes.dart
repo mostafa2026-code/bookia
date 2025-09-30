@@ -1,10 +1,11 @@
+import 'package:bookia/feature/home/presentation/pages/homescreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/forgetpassword/pages/forgetpassword.dart';
 import 'package:bookia/feature/auth/presentation/login/pages/loginscreen.dart';
 import 'package:bookia/feature/auth/presentation/otpverication/pages/otpvericationscreen.dart';
 import 'package:bookia/feature/auth/presentation/register/pages/registerscreen.dart';
-import 'package:bookia/feature/home/pages/homescreen.dart';
+
 import 'package:bookia/feature/profile/profilemain/pages/profilescreen.dart';
 import 'package:bookia/feature/profile/updateprofile/editptofile/editprofilescreen.dart';
 import 'package:bookia/feature/splash/splashacreen.dart';

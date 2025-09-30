@@ -11,4 +11,15 @@ class MyEndPoints {
   static const String addToWishlist = "/add-to-wishlist";
   static const String removeFromWishlist = "/remove-from-wishlist";
   static const String showWishlist = "/wishlist";
+
+
+
+  static const String allProducts = "/products";
+  static const String searchProduct = "/products-search?name=aqaaaq";
+  static const String bestSellers = "/products-bestseller";
+  static const String newArrivals = "/products-new-arrivals";
+
+
+
+
 }
