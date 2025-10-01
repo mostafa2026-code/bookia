@@ -52,9 +52,8 @@ class MyAuthRepo {
     return myRes;
   }
 
-  static Future<MyAuthREsponse?> forgetPassword( AuthParams params) async {
+  static Future<MyAuthREsponse?> forgetPassword(AuthParams params) async {
     try {
-     
       Response myRes = await MyDioProvider.post(
         endpoint: MyEndPoints.sendForgetPasswordLink,
         body: params.fromObjectToJson(),
@@ -78,15 +77,20 @@ class MyAuthRepo {
     return myRes;
   }
 
-  static Future<Response> resetPassword() async {
-    Response myRes = await MyDioProvider.post(
-      endpoint: MyEndPoints.resetPassword,
-      body: {
-        "verify_code": 837178,
-        "new_password": "00000000",
-        "new_password_confirmation": "00000000",
-      },
-    );
-    return myRes;
+  static Future<Response?> resetPassword(AuthParams params) async {
+    try {
+      Response myRes = await MyDioProvider.post(
+        endpoint: MyEndPoints.resetPassword,
+        body: params.fromObjectToJson(),
+      );
+      if (myRes.statusCode == 200) {
+        return myRes;
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
   }
 }
