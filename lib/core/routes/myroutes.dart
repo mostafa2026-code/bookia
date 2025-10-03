@@ -1,3 +1,5 @@
+import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
+import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/presentation/pages/homescreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
@@ -22,6 +24,7 @@ class MyRouts {
   static const String otpverication = '/otpverication';
   static const String profile = '/profile';
   static const String editprofile = '/editprofile';
+  static const String details = '/details';
 
   final GoRouter myroutes = GoRouter(
     routes: [
@@ -74,6 +77,12 @@ class MyRouts {
         path: editprofile,
         builder: (context, state) {
           return const Editprofilescreen();
+        },
+      ),
+      GoRoute(
+        path: details,
+        builder: (context, state) {
+          return DetailsScreen(model: state.extra as Product);
         },
       ),
       GoRoute(

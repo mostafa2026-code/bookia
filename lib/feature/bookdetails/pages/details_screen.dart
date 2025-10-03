@@ -1,10 +1,11 @@
-import 'package:bookia/feature/bookdetails/model_details.dart';
+
 import 'package:bookia/feature/bookdetails/widget/detials_body.dart';
+import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final ModelDetails model;
+  final Product model;
   const DetailsScreen({super.key, required this.model});
 
   @override

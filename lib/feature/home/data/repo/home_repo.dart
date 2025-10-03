@@ -5,7 +5,6 @@ import 'package:bookia/core/services/APi/my_end_points.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
 import 'package:dio/dio.dart';
 
-
 class HomeRepo {
   static Future<HomeResponse?> bestSellerBooks() async {
     try {
@@ -15,6 +14,20 @@ class HomeRepo {
       HomeResponse homeResponse = HomeResponse.fromJson(bestsellerer.data);
       if (bestsellerer.statusCode == 200) {
         return homeResponse;
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+
+  static Future<Response?> getSliderPhotos() async {
+    try {
+      Response res = await MyDioProvider.get(endpoint: MyEndPoints.getSlider);
+      if (res.statusCode == 200) {
+        return res;
       } else {
         return null;
       }

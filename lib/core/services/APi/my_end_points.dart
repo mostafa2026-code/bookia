@@ -11,6 +11,8 @@ class MyEndPoints {
   static const String addToWishlist = "/add-to-wishlist";
   static const String removeFromWishlist = "/remove-from-wishlist";
   static const String showWishlist = "/wishlist";
+  static const String getSlider = "/sliders";
+  
 
 
 
