@@ -21,7 +21,10 @@ class _HomeSliderState extends State<HomeSlider> {
       children: [
         CarouselSlider.builder(
           itemBuilder: (context, index, realIndex) {
-            return Image.asset("");
+            return Image.asset(
+              "assets/images/alif-caesar-rizqi-pratama-loUlSOXL81c-unsplash 1.png",
+              height: 200,
+            );
           },
           itemCount: 5,
           options: CarouselOptions(
@@ -46,11 +49,15 @@ class _HomeSliderState extends State<HomeSlider> {
           ),
         ),
         Gap(20),
-        SmoothPageIndicator(
-          controller: controller,
+        AnimatedSmoothIndicator(
+          activeIndex: activeIndex,
           count: 5,
-          effect: ExpandingDotsEffect(activeDotColor: Mycolors.lightPrimary),
-          
+          effect: ExpandingDotsEffect(
+            dotHeight: 10,
+            dotWidth: 10,
+            activeDotColor: Mycolors.lightPrimary,
+            dotColor: Mycolors.lightPrimary,
+          ),
         ),
       ],
     );

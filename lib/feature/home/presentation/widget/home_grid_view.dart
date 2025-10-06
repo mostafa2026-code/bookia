@@ -1,70 +1,72 @@
-import 'package:bookia/core/routes/myroutes.dart';
-import 'package:bookia/core/routes/navigation.dart';
+import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/core/utils/colors/mycolors.dart';
-import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/home/data/model/home_response/data.dart';
-import 'package:bookia/feature/home/data/model/home_response/product.dart';
-import 'package:flutter/material.dart';
 
-@immutable
+import 'package:bookia/core/utils/styles/mystyles.dart';
+
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
 // ignore: must_be_immutable
 class HomeGridView extends StatelessWidget {
-  List<Product>? products = Data().products;
-  HomeGridView({super.key});
+  const HomeGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics : NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        itemBuilder: (context, index) {
-          Product? productModel = products?[index];
-          return GestureDetector(
-            onTap: () {
-              MyNavigation.push(context, MyRouts.details, productModel);
-            },
-            child: Container(
-              height: 280,
-              width: 165,
-            
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Mycolors.lightBackground,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ClipRRect(
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {},
+          child: Container(
+            height: 280,
+            width: 165,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Mycolors.lightBackground,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      productModel!.image ?? "assets/images/Mask group.png",
+                      "assets/images/Mask group.png",
                       height: 200,
                       width: 165,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  Text(
-                    productModel.name ?? "Book Name",
-                    style: MytextStyles.main16_400(),
-                  ),
-                  Text(
-                    productModel.price ?? "\$55",
-                    style: MytextStyles.main16_400().copyWith(
-                      color: Mycolors.lightPrimary,
+                ),
+                SizedBox(
+                  height: 40,
+                  child: Text(maxLines: 2,"Book Name", style: MytextStyles.main16_400(),textAlign: TextAlign.justify,),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "\$55",
+                      style: MytextStyles.main16_400().copyWith(
+                        color: Mycolors.lightPrimary,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                    Gap(30),
+                    Expanded(
+                      child: Mainbottm(onpressed: () {}, title: "Buy"),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

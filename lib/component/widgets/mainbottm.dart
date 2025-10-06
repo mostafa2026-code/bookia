@@ -8,6 +8,7 @@ class Mainbottm extends StatelessWidget {
   final Color fillColor;
   final Color borderColor;
   final Color textColor;
+  final int? height;
   const Mainbottm({
     super.key,
     required this.onpressed,
@@ -15,6 +16,7 @@ class Mainbottm extends StatelessWidget {
     this.fillColor = Mycolors.lightPrimary,
     this.borderColor = Colors.transparent,
     this.textColor = Colors.white,
+    this.height = 50,
   });
 
   @override

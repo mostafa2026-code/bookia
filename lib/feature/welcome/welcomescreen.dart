@@ -36,6 +36,10 @@ class Welcomescreen extends StatelessWidget {
                   title: "Log In",
                 ),
                 Gap(32),
+                Mainbottm(onpressed: (){
+                  MyNavigation.push(context, MyRouts.home, null);
+                }, title: "as  a guest"),
+                Gap(32),
                 Mainbottm(
                   onpressed: () {
                     MyNavigation.push(context, MyRouts.register, null);
