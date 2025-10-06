@@ -27,7 +27,7 @@ class AuthCubit extends Cubit<AuthStates> {
     if (registerResponse != null) {
       emit(AuthSuccessState());
     } else {
-      emit(AuthErrorState());
+      emit(AuthErrorState('Registration failed'));
     }
   }
 
@@ -43,65 +43,65 @@ class AuthCubit extends Cubit<AuthStates> {
     if (loginResponse != null) {
       emit(AuthSuccessState());
     } else {
-      emit(AuthErrorState());
+      emit(AuthErrorState('log in failed  failed'));
     }
   }
 
-  void forgetPassword() async {
-    emit(AuthLoadingState());
+  //   void forgetPassword() async {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void resetPassword() {
-    emit(AuthLoadingState());
+  //   void resetPassword() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void otpVerification() {
-    emit(AuthLoadingState());
+  //   void otpVerification() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void logOut() {
-    emit(AuthLoadingState());
+  //   void logOut() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void cheeckForgetPassword() {
-    emit(AuthLoadingState());
+  //   void cheeckForgetPassword() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void resendVerifyLink() {
-    emit(AuthLoadingState());
+  //   void resendVerifyLink() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  void verifyEmail() {
-    emit(AuthLoadingState());
+  //   void verifyEmail() {
+  //     emit(AuthLoadingState());
 
-    emit(AuthSuccessState());
+  //     emit(AuthSuccessState());
 
-    emit(AuthErrorState());
-  }
+  //     emit(AuthErrorState());
+  //   }
 
-  
+  // }
 }

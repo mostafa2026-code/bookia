@@ -3,9 +3,15 @@ import 'package:dio/dio.dart';
 
 class MyDioProvider {
   static late Dio myDio;
-  final String token = "9116|gCUeEjB2RGwAA6L03btHozxiXOV6eVATMyLsdGlQ";
+
   static void init() {
-    myDio = Dio(BaseOptions(baseUrl: MyEndPoints.baseUrl));
+    myDio = Dio(
+      BaseOptions(
+        baseUrl: MyEndPoints.baseUrl,
+        sendTimeout: Duration(seconds: 20),
+        connectTimeout: Duration(seconds: 20),
+      ),
+    );
   }
 
   static Future<Response> post({

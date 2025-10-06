@@ -42,25 +42,16 @@ class MyAuthRepo {
     }
   }
 
-  static Future<Response> logout() async {
-    Response myRes = await MyDioProvider.post(
-      endpoint: MyEndPoints.logout,
-      options: Options(
-        headers: {"Authorization": "Bearer ${MyDioProvider().token}"},
-      ),
-    );
-    return myRes;
-  }
-
   static Future<MyAuthREsponse?> forgetPassword(AuthParams params) async {
     try {
       Response myRes = await MyDioProvider.post(
         endpoint: MyEndPoints.sendForgetPasswordLink,
         body: params.fromObjectToJson(),
       );
-      if (myRes.statusCode == 200) {
+      if (myRes.statusCode == 200 || myRes.statusCode == 201) {
         return MyAuthREsponse.fromJson(myRes.data);
       } else {
+        log("Unexpected status code: ${myRes.statusCode}");
         return null;
       }
     } on Exception catch (e) {
