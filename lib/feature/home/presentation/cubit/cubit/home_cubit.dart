@@ -10,29 +10,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
   List<Product>? bestSeller = [];
-  List<MyHomeSlider>? sliders= [];
+  List<MyHomeSlider>? sliders = [];
 
-  Future<void> getBestSeller() async {
-    emit(HomeLoading());
+  Future<void> getAllHome() async {
+    var sliderReq = HomeRepo.getSliderPhotos();
+    var bestSellerReq = HomeRepo.bestSellerBooks();
+    var homeresult = await Future.wait([sliderReq, bestSellerReq]);
 
-    HomeResponse? res = await HomeRepo.bestSellerBooks();
-    if (res != null) {
+    var sliderRes = homeresult[0] as SliderResponse;
+    var bestSellerRes = homeresult[1] as HomeResponse;
+
+    if (sliderRes != null || bestSellerRes != null) {
+      sliders = sliderRes.data!.sliders;
+      bestSeller = bestSellerRes.data!.products;
       emit(HomeSuccess());
-      bestSeller = res.data?.products;
     } else {
-      emit(HomeError("error"));
-    }
-  }
-
-  Future<void> getSlider() async {
-    emit(HomeLoading());
-
-    SliderResponse? res = await HomeRepo.getSliderPhotos();
-    if (res != null) {
-      emit(HomeSuccess());
-      sliders = res.data?.sliders;
-    } else {
-      emit(HomeError("error"));
+      emit(HomeError("Error "));
     }
   }
 }

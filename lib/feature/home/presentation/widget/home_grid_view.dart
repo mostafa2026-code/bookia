@@ -43,7 +43,7 @@ class HomeGridView extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: book.image ?? "",
                       fit: BoxFit.cover,
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      errorWidget: (context, url, error) => Center(child:Text("Not Found")),
                     ),
                   ),
                 ),

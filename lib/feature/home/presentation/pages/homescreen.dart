@@ -12,14 +12,11 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()
-        ..getBestSeller()
-        ..getSlider(),
+      create: (context) => HomeCubit()..getAllHome(),
       child: BlocBuilder(
         builder: (context, state) {
           HomeCubit homeCubit = context.read<HomeCubit>();
-          
-          if(state is !HomeSuccess){
+          if (state is! HomeSuccess) {
             Center(child: CircularProgressIndicator());
           }
 
@@ -31,9 +28,11 @@ class Homescreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
 
-                    children: [HomeSlider(sliders: homeCubit.sliders), 
-                    Gap(20), 
-                    HomeGridView(products: homeCubit.bestSeller!)],
+                    children: [
+                      HomeSlider(sliders: homeCubit.sliders),
+                      Gap(20),
+                      HomeGridView(products: homeCubit.bestSeller!),
+                    ],
                   ),
                 ),
               ),

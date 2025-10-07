@@ -30,7 +30,8 @@ class _HomeSliderState extends State<HomeSlider> {
               borderRadius: BorderRadius.circular(20),
               child: CachedNetworkImage(
                 imageUrl: currentSlider!.image ?? "",
-                errorListener: (value) {},
+                errorWidget: (context, url, error) => Center(child:Text("Not Found")),
+                fit: BoxFit.cover,
               ),
             );
           },
