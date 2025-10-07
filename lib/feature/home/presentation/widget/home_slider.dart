@@ -31,23 +31,25 @@ class _HomeSliderState extends State<HomeSlider> {
               borderRadius: BorderRadius.circular(20),
               child: CachedNetworkImage(
                 imageUrl: currentSlider!.image ?? "",
-                errorWidget: (context, url, error) => Center(child:Text("Not Found")),
-                fit: BoxFit.cover,
+                errorWidget: (context, url, error) =>
+                    Center(child: Text("Not Found")),
+                width: double.infinity,
+                height: 150,
               ),
             );
           },
           itemCount: widget.sliders!.length,
           options: CarouselOptions(
-            height: 400,
+            height: 170,
             aspectRatio: 16 / 9,
-            viewportFraction: 0.8,
+            viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
             autoPlay: true,
-            autoPlayInterval:const  Duration(seconds: 3),
+            autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve:  Curves.fastOutSlowIn,
+            autoPlayCurve: Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             enlargeFactor: 0.3,
             onPageChanged: (index, reason) {
@@ -59,10 +61,10 @@ class _HomeSliderState extends State<HomeSlider> {
           ),
         ),
         Gap(20),
-          AnimatedSmoothIndicator(
+        AnimatedSmoothIndicator(
           activeIndex: activeIndex,
           count: widget.sliders!.length,
-          effect:  const ExpandingDotsEffect(
+          effect: const ExpandingDotsEffect(
             dotHeight: 10,
             dotWidth: 10,
             activeDotColor: Mycolors.lightPrimary,

@@ -15,23 +15,29 @@ class AuthCubit extends Cubit<AuthStates> {
       TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Future<void> register() async {
+    if (!formKey.currentState!.validate()) return;
     emit(AuthLoadingState());
-    MyAuthREsponse? registerResponse = await MyAuthRepo.register(
-      AuthParams(
-        username: namecontroller.text,
-        email: emailcontroller.text,
-        password: passwordcontroller.text,
-        confirmPassword: confirmpasswordcontroller.text,
-      ),
-    );
-    if (registerResponse != null) {
-      emit(AuthSuccessState());
-    } else {
-      emit(AuthErrorState('Registration failed'));
+    try {
+      MyAuthREsponse? registerResponse = await MyAuthRepo.register(
+        AuthParams(
+          username: namecontroller.text.trim(),
+          email: emailcontroller.text.trim(),
+          password: passwordcontroller.text.trim(),
+          confirmPassword: confirmpasswordcontroller.text.trim(),
+        ),
+      );
+
+      if (registerResponse != null) {
+        emit(AuthSuccessState());
+      } else {
+        emit(AuthErrorState('Registration failed. Please check your details.'));
+      }
+    } catch (e) {
+      emit(AuthErrorState('Unexpected error: $e'));
     }
   }
 
-  void login() async {
+  Future<void> login() async {
     emit(AuthLoadingState());
 
     MyAuthREsponse? loginResponse = await MyAuthRepo.login(
@@ -105,3 +111,15 @@ class AuthCubit extends Cubit<AuthStates> {
 
   // }
 }
+
+
+// static Future<MyAuthREsponse?> register(AuthParams params) async {
+//   try {
+//     Response myRes = await MyDioProvider.post(
+//       endpoint: MyEndPoints.register,
+//       body: params.fromObjectToJson(),
+//     );
+
+//     // السماح بكل success codes الممكنة
+
+// }

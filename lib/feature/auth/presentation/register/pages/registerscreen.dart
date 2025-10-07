@@ -19,7 +19,7 @@ class Registerscreen extends StatelessWidget {
     return BlocListener<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is AuthLoadingState) {
-          showloadingDialog(context);
+          const CircularProgressIndicator();
         } else if (state is AuthErrorState) {
           MyNavigation.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
@@ -28,9 +28,11 @@ class Registerscreen extends StatelessWidget {
               backgroundColor: Colors.red,
             ),
           );
+          debugPrint("Failed");
         } else if (state is AuthSuccessState) {
           MyNavigation.pop(context);
           MyNavigation.pushReplace(context, MyRouts.home, null);
+          debugPrint("Succes");
         }
       },
       child: Scaffold(
@@ -46,7 +48,7 @@ class Registerscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                       Text(
+                      Text(
                         "Hello! Register to get started",
                         style: MytextStyles.main24_400().copyWith(fontSize: 30),
                       ),
@@ -68,7 +70,7 @@ class Registerscreen extends StatelessWidget {
                         },
                         decoration: InputDecoration(hintText: "Email"),
                       ),
-                     const  Gap(16),
+                      const Gap(16),
                       TextFormField(
                         controller: authcubit.passwordcontroller,
                         validator: (value) {
@@ -85,7 +87,7 @@ class Registerscreen extends StatelessWidget {
                         ),
                       ),
                       const Gap(16),
-                       TextFormField(
+                      TextFormField(
                         controller: authcubit.confirmpasswordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -105,9 +107,7 @@ class Registerscreen extends StatelessWidget {
                       Center(
                         child: Mainbottm(
                           onpressed: () async {
-                            if (authcubit.formKey.currentState!.validate()) {
-                              await authcubit.register();
-                            }
+                            authcubit.register();
                           },
                           title: "Register",
                         ),

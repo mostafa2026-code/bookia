@@ -9,18 +9,36 @@ import 'package:dio/dio.dart';
 class MyAuthRepo {
   static Future<MyAuthREsponse?> register(AuthParams params) async {
     try {
+      print('Sending registration body: ${params.fromObjectToJson()}');
       Response myRes = await MyDioProvider.post(
         endpoint: MyEndPoints.register,
         body: params.fromObjectToJson(),
       );
 
-      if (myRes.statusCode == 201) {
-        return MyAuthREsponse.fromJson(myRes.data);
+      // السماح بكل success codes الممكنة
+      if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
+          myRes.data != null) {
+        try {
+          return MyAuthREsponse.fromJson(myRes.data);
+        } catch (e) {
+          print('Error parsing response: $e, data: ${myRes.data}');
+          return null;
+        }
       } else {
+        print(
+          'Registration failed with status: ${myRes.statusCode}, message: ${myRes.data}',
+        );
         return null;
       }
-    } on Exception catch (e) {
-      log(e.toString());
+    } on DioException catch (e) {
+      if (e.response != null) {
+        print('DioError response: ${e.response!.data}');
+      } else {
+        print('DioError message: ${e.message}');
+      }
+      return null;
+    } catch (e) {
+      print('Unexpected error: $e');
       return null;
     }
   }

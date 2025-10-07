@@ -8,7 +8,8 @@ class Mainbottm extends StatelessWidget {
   final Color fillColor;
   final Color borderColor;
   final Color textColor;
-  final int? height;
+  final double height;
+  final double weidth;
   const Mainbottm({
     super.key,
     required this.onpressed,
@@ -16,7 +17,8 @@ class Mainbottm extends StatelessWidget {
     this.fillColor = Mycolors.lightPrimary,
     this.borderColor = Colors.transparent,
     this.textColor = Colors.white,
-    this.height = 50,
+    this.height = 45,
+    this.weidth = double.infinity,
   });
 
   @override
@@ -26,6 +28,8 @@ class Mainbottm extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: fillColor,
         side: BorderSide(color: borderColor),
+        minimumSize: Size(weidth, height),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       child: Text(
         title,

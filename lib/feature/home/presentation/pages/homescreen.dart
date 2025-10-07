@@ -13,7 +13,7 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeCubit()..getAllHome(),
-      child: BlocBuilder(
+      child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           final HomeCubit homeCubit = context.read<HomeCubit>();
           if (state is! HomeSuccess) {
@@ -24,13 +24,13 @@ class Homescreen extends StatelessWidget {
             body: SafeArea(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(15),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
 
                     children: [
                       HomeSlider(sliders: homeCubit.sliders),
-                     const  Gap(20),
+                      const Gap(20),
                       HomeGridView(products: homeCubit.bestSeller!),
                     ],
                   ),

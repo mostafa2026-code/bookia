@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MyDioProvider.init();
-  runApp(const MainApp());
+  runApp(BlocProvider(create: (_) => AuthCubit(), child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -17,12 +17,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider<AuthCubit>(create: (context) => AuthCubit())],
-      child: MaterialApp.router(
-        routerConfig: MyRouts().myroutes,
-        theme: Mythemes.lightTheme(),
-      ),
+    return MaterialApp.router(
+      routerConfig: MyRouts().myroutes,
+      theme: Mythemes.lightTheme(),
     );
   }
 }

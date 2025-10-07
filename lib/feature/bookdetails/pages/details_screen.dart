@@ -1,5 +1,6 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -21,7 +22,7 @@ class DetailsScreen extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,9 +42,16 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(book.name ?? "", style: MytextStyles.main16_400()),
                 const Gap(20),
-                Text(book.category ?? ""),
+                Text(
+                  book.name ?? "",
+                  style: MytextStyles.main16_400().copyWith(fontSize: 30),
+                ),
+                const Gap(20),
+                Text(
+                  book.category ?? "",
+                  style: TextStyle(color: Mycolors.darkPrimary, fontSize: 16),
+                ),
                 const Gap(20),
                 Text(book.description ?? "", textAlign: TextAlign.justify),
               ],
@@ -57,7 +65,10 @@ class DetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("${book.priceAfterDiscount ?? 0.0}"),
-            Mainbottm(onpressed: () {}, title: "Add To Cart"),
+            Gap(20),
+            Expanded(
+              child: Mainbottm(onpressed: () {}, title: "Add To Cart"),
+            ),
           ],
         ),
       ),

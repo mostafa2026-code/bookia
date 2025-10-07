@@ -17,24 +17,30 @@ class HomeGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-      itemBuilder: (context, index) {
-        Product book = products[index];
-        return GestureDetector(
-          onTap: () {
-            MyNavigation.push(context, MyRouts.details, book);
-          },
-          child: GridViewContainer(book: book),
-        );
-      },
-    );
+    if (products.isEmpty) {
+      return Center(child: Text("No Products Found"));
+    } else {
+      return GridView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          mainAxisExtent: 280,
+        ),
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          Product book = products[index];
+          return GestureDetector(
+            onTap: () {
+              MyNavigation.push(context, MyRouts.details, book);
+            },
+            child: GridViewContainer(book: book),
+          );
+        },
+      );
+    }
   }
 }
 
@@ -46,39 +52,49 @@ class GridViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
-      width: 165,
+      padding: EdgeInsets.all(8),
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Mycolors.lightBackground,
+        border: BoxBorder.all(color: Mycolors.darkBackground, width: 1),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Hero(
-              tag: book.id??"",
-              
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: CachedNetworkImage(
-                  imageUrl: book.image ?? "",
-                  fit: BoxFit.cover,
-                  errorWidget: (context, url, error) =>
-                      Center(child: Text("Not Found")),
+              tag: book.id ?? UniqueKey().toString,
+
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: CachedNetworkImage(
+                    imageUrl: book.image ?? "",
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) =>
+                        Center(child: Text("Not Found")),
+                    placeholder: (context, url) {
+                      return CircularProgressIndicator();
+                    },
+                  ),
                 ),
               ),
             ),
           ),
+          Gap(10),
           SizedBox(
             height: 40,
             child: Text(
               maxLines: 2,
               book.name ?? "",
+              overflow: TextOverflow.ellipsis,
               style: MytextStyles.main16_400(),
-              textAlign: TextAlign.justify,
+              
             ),
           ),
+          Gap(10),
           Row(
             children: [
               Text(
@@ -87,9 +103,9 @@ class GridViewContainer extends StatelessWidget {
                   color: Mycolors.lightPrimary,
                 ),
               ),
-              Gap(30),
+              Gap(10),
               Expanded(
-                child: Mainbottm(onpressed: () {}, title: "Buy"),
+                child: Mainbottm(onpressed: () {}, title: "Buy", height: 30, weidth: 70,),
               ),
             ],
           ),
