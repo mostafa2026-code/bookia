@@ -18,20 +18,20 @@ class Passwordchangedsuccessfullyscreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Lottie.asset("assets/icons/Succes.json"),
-              Gap(40),
+              const Gap(40),
               Text(
                 "Password Changed!",
                 style: MytextStyles.main20_600().copyWith(
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Gap(10),
+              const Gap(10),
               Text(
                 "Your password has been changed successfully.",
                 textAlign: TextAlign.center,
                 style: MytextStyles.sub14_400(),
               ),
-              Gap(40),
+              const Gap(40),
               Mainbottm(onpressed: () {}, title: "Back to Login"),
             ],
           ),

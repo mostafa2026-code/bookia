@@ -20,6 +20,7 @@ class HomeCubit extends Cubit<HomeState> {
     var sliderRes = homeresult[0] as SliderResponse;
     var bestSellerRes = homeresult[1] as HomeResponse;
 
+    // ignore: unnecessary_null_comparison
     if (sliderRes != null || bestSellerRes != null) {
       sliders = sliderRes.data!.sliders;
       bestSeller = bestSellerRes.data!.products;

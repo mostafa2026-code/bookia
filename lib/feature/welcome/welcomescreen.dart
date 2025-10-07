@@ -25,24 +25,24 @@ class Welcomescreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 SvgPicture.asset("assets/images/logo 2.svg"),
                 Text("Order Your Book Now!", style: MytextStyles.main20_400()),
-                Spacer(flex: 2),
+                const Spacer(flex: 2),
                 Mainbottm(
                   onpressed: () {
                     MyNavigation.push(context, MyRouts.login, null);
                   },
                   title: "Log In",
                 ),
-                Gap(32),
+                const Gap(32),
                 Mainbottm(
                   onpressed: () {
                     MyNavigation.push(context, MyRouts.home, null);
                   },
                   title: "as  a guest",
                 ),
-                Gap(32),
+                const Gap(32),
                 Mainbottm(
                   onpressed: () {
                     MyNavigation.push(context, MyRouts.register, null);
@@ -51,7 +51,7 @@ class Welcomescreen extends StatelessWidget {
                   fillColor: Colors.white,
                   textColor: Mycolors.lightPrimary,
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+// ignore: implementation_imports
 import 'package:cached_network_image/src/cached_image_widget.dart';
 
 class HomeSlider extends StatefulWidget {
@@ -44,9 +45,9 @@ class _HomeSliderState extends State<HomeSlider> {
             enableInfiniteScroll: true,
             reverse: false,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
+            autoPlayInterval:const  Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
+            autoPlayCurve:  Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             enlargeFactor: 0.3,
             onPageChanged: (index, reason) {
@@ -58,10 +59,10 @@ class _HomeSliderState extends State<HomeSlider> {
           ),
         ),
         Gap(20),
-        AnimatedSmoothIndicator(
+          AnimatedSmoothIndicator(
           activeIndex: activeIndex,
           count: widget.sliders!.length,
-          effect: ExpandingDotsEffect(
+          effect:  const ExpandingDotsEffect(
             dotHeight: 10,
             dotWidth: 10,
             activeDotColor: Mycolors.lightPrimary,

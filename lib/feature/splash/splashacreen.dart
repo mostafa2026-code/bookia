@@ -28,7 +28,7 @@ class _SplashacreenState extends State<Splashacreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(child: Lottie.asset("assets/icons/Books.json")),
-          Center(child: Text("Order Your Book Now!")),
+          const Center(child: Text("Order Your Book Now!")),
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/routes/myroutes.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/colors/mycolors.dart';
 
 import 'package:bookia/core/utils/styles/mystyles.dart';
@@ -26,55 +28,73 @@ class HomeGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         Product book = products[index];
         return GestureDetector(
-          onTap: () {},
-          child: Container(
-            height: 280,
-            width: 165,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Mycolors.lightBackground,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      imageUrl: book.image ?? "",
-                      fit: BoxFit.cover,
-                      errorWidget: (context, url, error) => Center(child:Text("Not Found")),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 40,
-                  child: Text(
-                    maxLines: 2,
-                    book.name ?? "",
-                    style: MytextStyles.main16_400(),
-                    textAlign: TextAlign.justify,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      " ${book.priceAfterDiscount ?? 0.0}",
-                      style: MytextStyles.main16_400().copyWith(
-                        color: Mycolors.lightPrimary,
-                      ),
-                    ),
-                    Gap(30),
-                    Expanded(
-                      child: Mainbottm(onpressed: () {}, title: "Buy"),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          onTap: () {
+            MyNavigation.push(context, MyRouts.details, book);
+          },
+          child: GridViewContainer(book: book),
         );
       },
+    );
+  }
+}
+
+class GridViewContainer extends StatelessWidget {
+  const GridViewContainer({super.key, required this.book});
+
+  final Product book;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 280,
+      width: 165,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Mycolors.lightBackground,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Hero(
+              tag: book.id??"",
+              
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: CachedNetworkImage(
+                  imageUrl: book.image ?? "",
+                  fit: BoxFit.cover,
+                  errorWidget: (context, url, error) =>
+                      Center(child: Text("Not Found")),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 40,
+            child: Text(
+              maxLines: 2,
+              book.name ?? "",
+              style: MytextStyles.main16_400(),
+              textAlign: TextAlign.justify,
+            ),
+          ),
+          Row(
+            children: [
+              Text(
+                " ${book.priceAfterDiscount ?? 0.0}",
+                style: MytextStyles.main16_400().copyWith(
+                  color: Mycolors.lightPrimary,
+                ),
+              ),
+              Gap(30),
+              Expanded(
+                child: Mainbottm(onpressed: () {}, title: "Buy"),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

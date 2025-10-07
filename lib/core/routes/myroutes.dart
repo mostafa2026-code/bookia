@@ -82,7 +82,7 @@ class MyRouts {
       GoRoute(
         path: details,
         builder: (context, state) {
-          return DetailsScreen(model: state.extra as Product);
+          return DetailsScreen(book: state.extra as Product);
         },
       ),
       GoRoute(

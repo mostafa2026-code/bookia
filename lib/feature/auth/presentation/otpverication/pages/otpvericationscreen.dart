@@ -43,12 +43,12 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                   "OTP Verification",
                   style: MytextStyles.main24_400().copyWith(fontSize: 32),
                 ),
-                Gap(16),
+                const Gap(16),
                 Text(
                   "Enter the verification code we just sent on your email address.",
                   style: MytextStyles.sub16_400(),
                 ),
-                Gap(32),
+                const Gap(32),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,7 +67,7 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                   ],
                 ),
 
-                Gap(32),
+                const Gap(32),
                 Mainbottm(onpressed: () {}, title: "Verify"),
               ],
             ),
@@ -79,7 +79,7 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Didn’t received code?"),
+            const Text("Didn’t received code?"),
             TextButton(
               onPressed: () {},
               child: Text("Resend", style: MytextStyles.textbottomstyle()),

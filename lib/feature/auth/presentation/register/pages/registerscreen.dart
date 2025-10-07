@@ -46,16 +46,16 @@ class Registerscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                       Text(
                         "Hello! Register to get started",
                         style: MytextStyles.main24_400().copyWith(fontSize: 30),
                       ),
-                      Gap(32),
+                      const Gap(32),
                       TextFormField(
                         controller: authcubit.namecontroller,
                         decoration: InputDecoration(hintText: "Username"),
                       ),
-                      Gap(16),
+                      const Gap(16),
                       TextFormField(
                         controller: authcubit.emailcontroller,
                         validator: (value) {
@@ -68,7 +68,7 @@ class Registerscreen extends StatelessWidget {
                         },
                         decoration: InputDecoration(hintText: "Email"),
                       ),
-                      Gap(16),
+                     const  Gap(16),
                       TextFormField(
                         controller: authcubit.passwordcontroller,
                         validator: (value) {
@@ -84,8 +84,8 @@ class Registerscreen extends StatelessWidget {
                           suffixIcon: Icon(Icons.visibility_off),
                         ),
                       ),
-                      Gap(16),
-                      TextFormField(
+                      const Gap(16),
+                       TextFormField(
                         controller: authcubit.confirmpasswordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -101,7 +101,7 @@ class Registerscreen extends StatelessWidget {
                           suffixIcon: Icon(Icons.visibility_off),
                         ),
                       ),
-                      Gap(32),
+                      const Gap(32),
                       Center(
                         child: Mainbottm(
                           onpressed: () async {

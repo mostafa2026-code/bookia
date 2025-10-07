@@ -15,9 +15,9 @@ class Homescreen extends StatelessWidget {
       create: (context) => HomeCubit()..getAllHome(),
       child: BlocBuilder(
         builder: (context, state) {
-          HomeCubit homeCubit = context.read<HomeCubit>();
+          final HomeCubit homeCubit = context.read<HomeCubit>();
           if (state is! HomeSuccess) {
-            Center(child: CircularProgressIndicator());
+            const Center(child: CircularProgressIndicator());
           }
 
           return Scaffold(
@@ -30,7 +30,7 @@ class Homescreen extends StatelessWidget {
 
                     children: [
                       HomeSlider(sliders: homeCubit.sliders),
-                      Gap(20),
+                     const  Gap(20),
                       HomeGridView(products: homeCubit.bestSeller!),
                     ],
                   ),
