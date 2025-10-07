@@ -74,7 +74,6 @@ class Forgetpassword extends StatelessWidget {
                               .validate()) {
                             forgetPasswordCubit.forgetPassword();
                           }
-                          
                         },
                         title: "Send Code",
                       ),
@@ -94,8 +93,7 @@ class Forgetpassword extends StatelessWidget {
               Text("Remember Password?"),
               TextButton(
                 onPressed: () {
-                  MyNavigation.go(
-                      context, MyRouts.login, null);
+                  MyNavigation.go(context, MyRouts.login, null);
                 },
                 child: Text("Login", style: MytextStyles.textbottomstyle()),
               ),

@@ -3,7 +3,9 @@ import 'dart:developer';
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
+import 'package:bookia/feature/home/data/model/slider_response/slider_response/slider_response.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class HomeRepo {
   static Future<HomeResponse?> bestSellerBooks() async {
@@ -23,11 +25,11 @@ class HomeRepo {
     }
   }
 
-  static Future<Response?> getSliderPhotos() async {
+  static Future<SliderResponse?> getSliderPhotos() async {
     try {
       Response res = await MyDioProvider.get(endpoint: MyEndPoints.getSlider);
       if (res.statusCode == 200) {
-        return res;
+        return SliderResponse.fromJson(res.data);
       } else {
         return null;
       }

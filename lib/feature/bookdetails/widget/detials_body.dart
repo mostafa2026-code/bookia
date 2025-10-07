@@ -16,13 +16,17 @@ class DetialsBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(model.image ?? "assets/images/Mask group.png", height: 270, width: 180),
+          Image.asset(
+            model.image ?? "assets/images/Mask group.png",
+            height: 270,
+            width: 180,
+          ),
           Text(
-            model.name??"Book Name",
+            model.name ?? "Book Name",
             style: MytextStyles.main24_400().copyWith(fontSize: 30),
           ),
           Text(
-            model.price??"Author Name",
+            model.price ?? "Author Name",
             style: MytextStyles.main16_400().copyWith(fontSize: 18),
           ),
           Spacer(),

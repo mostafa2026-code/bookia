@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class MyNavigation {
-  static void push(BuildContext context, String route, Object? extra, ) {
+  static void push(BuildContext context, String route, Object? extra) {
     context.push(route, extra: extra);
   }
 

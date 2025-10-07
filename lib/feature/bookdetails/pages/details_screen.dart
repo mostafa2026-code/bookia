@@ -1,4 +1,3 @@
-
 import 'package:bookia/feature/bookdetails/widget/detials_body.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:flutter/material.dart';

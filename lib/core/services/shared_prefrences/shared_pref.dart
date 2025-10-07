@@ -1,4 +1,3 @@
-
 // import 'dart:convert';
 
 // import 'package:bookia/feature/auth/data/model/user_model.dart';
@@ -9,7 +8,6 @@
 //   static void init() async {
 //     prefs = await SharedPreferences.getInstance();
 //   }
-
 
 //   static void  saveUserData(UserModel ? myUser){
 //     if(myUser==null){

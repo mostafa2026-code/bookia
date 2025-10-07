@@ -5,11 +5,10 @@ class OtpCubit extends Cubit<OtpStates> {
   OtpCubit() : super(OtpInitialState());
   void otpverfication() async {
     emit(OtpLoadingState());
-    
-  // MyAuthRepo.forgetPassword();
+
+    // MyAuthRepo.forgetPassword();
     // For demonstration, we'll assume the OTP verification is always successful
     emit(OtpSuccessState());
     // In a real scenario, you would handle success and error cases based on the verification result
   }
-
 }

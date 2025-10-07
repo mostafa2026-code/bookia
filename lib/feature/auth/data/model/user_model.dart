@@ -16,7 +16,7 @@ class UserModel {
     this.id,
   });
 
-   Map<String, dynamic> toJson(UserModel user) {
+  Map<String, dynamic> toJson(UserModel user) {
     return {
       'name': user.name,
       'email': user.email,

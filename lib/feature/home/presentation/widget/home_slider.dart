@@ -1,17 +1,21 @@
 import 'package:bookia/core/utils/colors/mycolors.dart';
+import 'package:bookia/feature/home/data/model/slider_response/slider_response/slider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:cached_network_image/src/cached_image_widget.dart';
 
 class HomeSlider extends StatefulWidget {
-  const HomeSlider({super.key});
+  const HomeSlider({super.key, required this.sliders});
+  final List<MyHomeSlider>? sliders;
 
   @override
   State<HomeSlider> createState() => _HomeSliderState();
 }
 
 class _HomeSliderState extends State<HomeSlider> {
+  MyHomeSlider? currentSlider;
   int activeIndex = 0;
   PageController controller = PageController();
   @override
@@ -21,12 +25,16 @@ class _HomeSliderState extends State<HomeSlider> {
       children: [
         CarouselSlider.builder(
           itemBuilder: (context, index, realIndex) {
-            return Image.asset(
-              "assets/images/alif-caesar-rizqi-pratama-loUlSOXL81c-unsplash 1.png",
-              height: 200,
+            currentSlider = widget.sliders![index];
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: CachedNetworkImage(
+                imageUrl: currentSlider!.image ?? "",
+                errorListener: (value) {},
+              ),
             );
           },
-          itemCount: 5,
+          itemCount: widget.sliders!.length,
           options: CarouselOptions(
             height: 400,
             aspectRatio: 16 / 9,
@@ -51,7 +59,7 @@ class _HomeSliderState extends State<HomeSlider> {
         Gap(20),
         AnimatedSmoothIndicator(
           activeIndex: activeIndex,
-          count: 5,
+          count: widget.sliders!.length,
           effect: ExpandingDotsEffect(
             dotHeight: 10,
             dotWidth: 10,

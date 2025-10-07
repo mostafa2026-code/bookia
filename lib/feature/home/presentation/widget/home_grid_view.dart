@@ -2,13 +2,16 @@ import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/core/utils/colors/mycolors.dart';
 
 import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/home/data/model/home_response/product.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 // ignore: must_be_immutable
 class HomeGridView extends StatelessWidget {
-  const HomeGridView({super.key});
+  const HomeGridView({super.key, required this.products});
+  final List<Product> products;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class HomeGridView extends StatelessWidget {
         mainAxisSpacing: 10,
       ),
       itemBuilder: (context, index) {
+        Product book = products[index];
         return GestureDetector(
           onTap: () {},
           child: Container(
@@ -36,22 +40,26 @@ class HomeGridView extends StatelessWidget {
                 Expanded(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "assets/images/Mask group.png",
-                      height: 200,
-                      width: 165,
+                    child: CachedNetworkImage(
+                      imageUrl: book.image ?? "",
                       fit: BoxFit.cover,
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 40,
-                  child: Text(maxLines: 2,"Book Name", style: MytextStyles.main16_400(),textAlign: TextAlign.justify,),
+                  child: Text(
+                    maxLines: 2,
+                    book.name ?? "",
+                    style: MytextStyles.main16_400(),
+                    textAlign: TextAlign.justify,
+                  ),
                 ),
                 Row(
                   children: [
                     Text(
-                      "\$55",
+                      " ${book.priceAfterDiscount ?? 0.0}",
                       style: MytextStyles.main16_400().copyWith(
                         color: Mycolors.lightPrimary,
                       ),

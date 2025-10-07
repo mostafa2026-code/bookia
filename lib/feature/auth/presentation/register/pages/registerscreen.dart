@@ -74,8 +74,7 @@ class Registerscreen extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
-                          } else if (isvalidpassword(value) ==
-                              false) {
+                          } else if (isvalidpassword(value) == false) {
                             return 'Password must be at least 8 characters long';
                           }
                           return null;
