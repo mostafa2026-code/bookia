@@ -19,7 +19,9 @@ class Loginscreen extends StatelessWidget {
     final AuthCubit authcubit = context.read<AuthCubit>();
     return BlocListener<AuthCubit, AuthStates>(
       listener: (context, state) {
-        if (state is AuthErrorState) {
+        if (state is AuthLoadingState) {
+          const CircularProgressIndicator.adaptive();
+        } else if (state is AuthErrorState) {
           MyNavigation.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -27,8 +29,6 @@ class Loginscreen extends StatelessWidget {
               backgroundColor: Colors.red,
             ),
           );
-        } else if (state is AuthLoadingState) {
-          showloadingDialog(context);
         } else if (state is AuthSuccessState) {
           MyNavigation.pop(context);
           MyNavigation.pushReplace(context, MyRouts.home, null);
@@ -41,7 +41,7 @@ class Loginscreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(24),
               child: Form(
-                key: authcubit.formKey,
+                key: authcubit.loginformKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -100,9 +100,7 @@ class Loginscreen extends StatelessWidget {
                     Center(
                       child: Mainbottm(
                         onpressed: () {
-                          if (authcubit.formKey.currentState!.validate()) {
-                            authcubit.login();
-                          }
+                          authcubit.login();
                         },
                         title: "Log In",
                       ),

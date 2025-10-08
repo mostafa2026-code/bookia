@@ -1,6 +1,6 @@
 import 'package:bookia/core/utils/styles/mystyles.dart';
 
-import 'package:bookia/feature/wishlist/widgets/wish_list_list_view.dart';
+import 'package:bookia/feature/wishlist/presentation/widgets/wish_list_list_view.dart';
 import 'package:flutter/material.dart';
 
 class Wishlistscreen extends StatelessWidget {

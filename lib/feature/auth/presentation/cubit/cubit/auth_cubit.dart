@@ -1,3 +1,4 @@
+import 'package:bookia/feature/auth/data/model/login/login_response/login_response.dart';
 import 'package:bookia/feature/auth/data/model/my_auth_r_esponse/my_auth_r_esponse.dart';
 import 'package:bookia/feature/auth/data/model/request/auth_params.dart';
 import 'package:bookia/feature/auth/data/repo/my_auth_repo.dart';
@@ -14,6 +15,7 @@ class AuthCubit extends Cubit<AuthStates> {
   final TextEditingController confirmpasswordcontroller =
       TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginformKey = GlobalKey<FormState>();
   Future<void> register() async {
     if (!formKey.currentState!.validate()) return;
     emit(AuthLoadingState());
@@ -38,9 +40,11 @@ class AuthCubit extends Cubit<AuthStates> {
   }
 
   Future<void> login() async {
+    if (!loginformKey.currentState!.validate()) return;
+
     emit(AuthLoadingState());
 
-    MyAuthREsponse? loginResponse = await MyAuthRepo.login(
+    LoginResponse? loginResponse = await MyAuthRepo.login(
       AuthParams(
         email: emailcontroller.text,
         password: passwordcontroller.text,
@@ -49,7 +53,7 @@ class AuthCubit extends Cubit<AuthStates> {
     if (loginResponse != null) {
       emit(AuthSuccessState());
     } else {
-      emit(AuthErrorState('log in failed  failed'));
+      emit(AuthErrorState('log in failed '));
     }
   }
 
@@ -111,7 +115,6 @@ class AuthCubit extends Cubit<AuthStates> {
 
   // }
 }
-
 
 // static Future<MyAuthREsponse?> register(AuthParams params) async {
 //   try {

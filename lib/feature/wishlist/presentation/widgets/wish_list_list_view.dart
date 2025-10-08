@@ -1,4 +1,4 @@
-import 'package:bookia/feature/wishlist/widgets/wishlist_container.dart';
+import 'package:bookia/feature/wishlist/presentation/widgets/wishlist_container.dart';
 import 'package:flutter/material.dart';
 
 class WishListListView extends StatelessWidget {
@@ -16,7 +16,7 @@ class WishListListView extends StatelessWidget {
           return Divider();
         },
         itemBuilder: (BuildContext context, int index) {
-          return WishListContainer();
+          return Expanded(child: WishListContainer());
         },
       ),
     );

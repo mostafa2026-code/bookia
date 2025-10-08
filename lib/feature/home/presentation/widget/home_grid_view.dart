@@ -91,7 +91,6 @@ class GridViewContainer extends StatelessWidget {
               book.name ?? "",
               overflow: TextOverflow.ellipsis,
               style: MytextStyles.main16_400(),
-              
             ),
           ),
           Gap(10),
@@ -105,7 +104,12 @@ class GridViewContainer extends StatelessWidget {
               ),
               Gap(10),
               Expanded(
-                child: Mainbottm(onpressed: () {}, title: "Buy", height: 30, weidth: 70,),
+                child: Mainbottm(
+                  onpressed: () {},
+                  title: "Buy",
+                  height: 30,
+                  weidth: 70,
+                ),
               ),
             ],
           ),
