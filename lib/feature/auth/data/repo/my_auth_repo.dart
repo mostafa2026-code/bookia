@@ -47,7 +47,7 @@ class MyAuthRepo {
     try {
       print('Sending registration body: ${params.fromObjectToJson()}');
       Response myRes = await MyDioProvider.post(
-        endpoint: MyEndPoints.register,
+        endpoint: MyEndPoints.login,
         body: params.fromObjectToJson(),
       );
 

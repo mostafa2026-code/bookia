@@ -12,6 +12,8 @@ class AuthCubit extends Cubit<AuthStates> {
   final TextEditingController namecontroller = TextEditingController();
   final TextEditingController emailcontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController loginemailcontroller = TextEditingController();
+  final TextEditingController loginpasswordcontroller = TextEditingController();
   final TextEditingController confirmpasswordcontroller =
       TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -46,8 +48,8 @@ class AuthCubit extends Cubit<AuthStates> {
 
     LoginResponse? loginResponse = await MyAuthRepo.login(
       AuthParams(
-        email: emailcontroller.text,
-        password: passwordcontroller.text,
+        email: loginemailcontroller.text.trim(),
+        password: loginpasswordcontroller.text.trim(),
       ),
     );
     if (loginResponse != null) {

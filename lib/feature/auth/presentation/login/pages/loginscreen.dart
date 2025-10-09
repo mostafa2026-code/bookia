@@ -52,6 +52,7 @@ class Loginscreen extends StatelessWidget {
                     ),
                     Gap(32),
                     TextFormField(
+                      controller: authcubit.loginemailcontroller,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';
@@ -64,6 +65,7 @@ class Loginscreen extends StatelessWidget {
                     ),
                     Gap(16),
                     TextFormField(
+                      controller: authcubit.loginpasswordcontroller,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your password';
