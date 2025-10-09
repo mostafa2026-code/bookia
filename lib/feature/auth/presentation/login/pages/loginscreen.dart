@@ -31,7 +31,7 @@ class Loginscreen extends StatelessWidget {
           );
         } else if (state is AuthSuccessState) {
           MyNavigation.pop(context);
-          MyNavigation.pushReplace(context, MyRouts.home, null);
+          MyNavigation.pushReplace(context, MyRouts.main, null);
         }
       },
       child: Scaffold(

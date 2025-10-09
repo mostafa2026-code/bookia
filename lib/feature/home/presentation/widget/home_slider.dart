@@ -63,10 +63,10 @@ class _HomeSliderState extends State<HomeSlider> {
         Gap(20),
         AnimatedSmoothIndicator(
           activeIndex: activeIndex,
-          count: widget.sliders!.length,
+          count: widget.sliders!.length?? 5,
           effect: const ExpandingDotsEffect(
-            dotHeight: 10,
-            dotWidth: 10,
+            dotHeight: 10.0,
+            dotWidth: 10.0,
             activeDotColor: Mycolors.lightPrimary,
             dotColor: Mycolors.lightPrimary,
           ),

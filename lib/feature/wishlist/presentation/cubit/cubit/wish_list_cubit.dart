@@ -7,10 +7,6 @@ class WishListCubit extends Cubit<WishListState> {
   void getAllWishList() {
     emit(WishListLoading());
     var response = WishListRepo.getwishList();
-    if (response != null) {
-      emit(WishListSucces());
-    } else {
-      emit(WishListError());
+    emit(WishListSucces());
     }
-  }
 }

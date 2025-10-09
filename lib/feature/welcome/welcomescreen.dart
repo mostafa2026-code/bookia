@@ -38,7 +38,7 @@ class Welcomescreen extends StatelessWidget {
                 const Gap(32),
                 Mainbottm(
                   onpressed: () {
-                    MyNavigation.push(context, MyRouts.home, null);
+                    MyNavigation.push(context, MyRouts.main, null);
                   },
                   title: "as  a guest",
                 ),

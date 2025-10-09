@@ -12,14 +12,13 @@ class Wishlistscreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Wishlist", style: MytextStyles.main24_400()),
+        automaticallyImplyLeading: false,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [WishListListView()],
-          ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [WishListListView()],
         ),
       ),
     );

@@ -9,7 +9,7 @@ class WishListListView extends StatelessWidget {
     return Expanded(
       child: ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+
         scrollDirection: Axis.vertical,
         itemCount: 2,
         separatorBuilder: (BuildContext context, int index) {

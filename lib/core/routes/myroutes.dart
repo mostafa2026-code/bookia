@@ -1,6 +1,6 @@
 import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
-import 'package:bookia/feature/home/presentation/pages/homescreen.dart';
+import 'package:bookia/feature/home/presentation/pages/main_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/forgetpassword/pages/forgetpassword.dart';
@@ -17,7 +17,7 @@ import 'package:go_router/go_router.dart';
 class MyRouts {
   static const String splash = '/';
   static const String welcome = '/welcome';
-  static const String home = '/home';
+
   static const String login = '/login';
   static const String register = '/signup';
   static const String forgetpassword = '/forgetpassword';
@@ -25,6 +25,8 @@ class MyRouts {
   static const String profile = '/profile';
   static const String editprofile = '/editprofile';
   static const String details = '/details';
+
+  static const String main = '/mainscreen';
 
   final GoRouter myroutes = GoRouter(
     routes: [
@@ -40,12 +42,7 @@ class MyRouts {
           return const Welcomescreen();
         },
       ),
-      GoRoute(
-        path: home,
-        builder: (context, state) {
-          return const Homescreen();
-        },
-      ),
+      
       GoRoute(
         path: login,
         builder: (context, state) {
@@ -89,6 +86,12 @@ class MyRouts {
         path: forgetpassword,
         builder: (context, state) {
           return const Forgetpassword();
+        },
+      ),
+      GoRoute(
+        path: main,
+        builder: (context, state) {
+          return const MainScreen();
         },
       ),
     ],

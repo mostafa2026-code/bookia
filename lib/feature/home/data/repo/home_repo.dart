@@ -37,4 +37,17 @@ class HomeRepo {
       return null;
     }
   }
+  static Future<SliderResponse?> search() async {
+    try {
+      Response res = await MyDioProvider.get(endpoint: MyEndPoints.getSlider);
+      if (res.statusCode == 200) {
+        return SliderResponse.fromJson(res.data);
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
 }
