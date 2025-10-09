@@ -16,9 +16,12 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ArrowbackAppBar(
-        actions: [GestureDetector(onTap: () {
-        
-        }, child: SvgPicture.asset("assets/images/Bookmark.svg"))],
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset("assets/images/Bookmark.svg"),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

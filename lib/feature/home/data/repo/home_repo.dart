@@ -37,6 +37,7 @@ class HomeRepo {
       return null;
     }
   }
+
   static Future<SliderResponse?> search() async {
     try {
       Response res = await MyDioProvider.get(endpoint: MyEndPoints.getSlider);

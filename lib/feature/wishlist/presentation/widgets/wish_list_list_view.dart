@@ -1,8 +1,13 @@
+import 'package:bookia/feature/wishlist/data/model/response/wish_list_response/datum.dart';
+import 'package:bookia/feature/wishlist/presentation/cubit/cubit/wish_list_cubit.dart';
 import 'package:bookia/feature/wishlist/presentation/widgets/wishlist_container.dart';
 import 'package:flutter/material.dart';
 
 class WishListListView extends StatelessWidget {
-  const WishListListView({super.key});
+  const WishListListView({super.key, required this.books, required this.cubit});
+  
+  final List<WishListBook> books;
+   final WishListCubit cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,8 @@ class WishListListView extends StatelessWidget {
           return Divider();
         },
         itemBuilder: (BuildContext context, int index) {
-          return Expanded(child: WishListContainer());
+          WishListBook book = books[index];
+          return Expanded(child: WishListContainer(book: book, cubit: cubit,));
         },
       ),
     );

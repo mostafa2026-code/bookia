@@ -21,12 +21,10 @@ class WishListRepo {
     }
   }
 
-
   static Future<Response?> addTOWishList() async {
     try {
       Response wishlistRes = await MyDioProvider.post(
-        endpoint: MyEndPoints.showWishlist,
-        
+        endpoint: MyEndPoints.addToWishlist,
       );
       if (wishlistRes.statusCode == 200 || wishlistRes.statusCode == 201) {
         return wishlistRes;
@@ -38,10 +36,11 @@ class WishListRepo {
       return null;
     }
   }
+
   static Future<Response?> removeFromWishlist() async {
     try {
       Response wishlistRes = await MyDioProvider.delete(
-        endpoint: MyEndPoints.showWishlist,
+        endpoint: MyEndPoints.removeFromWishlist,
       );
       if (wishlistRes.statusCode == 200 || wishlistRes.statusCode == 201) {
         return wishlistRes;

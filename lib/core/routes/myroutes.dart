@@ -42,7 +42,7 @@ class MyRouts {
           return const Welcomescreen();
         },
       ),
-      
+
       GoRoute(
         path: login,
         builder: (context, state) {

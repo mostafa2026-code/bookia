@@ -13,18 +13,16 @@ class SearchScreen extends StatelessWidget {
           TextFormField(
             validator: (value) {
               return null;
-            
-              
             },
-            decoration: InputDecoration(
-              hintText: ""
-            ),
-
+            decoration: InputDecoration(hintText: ""),
           ),
-          GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2))
+          GridView(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+          ),
         ],
-      )
-
+      ),
     );
   }
 }

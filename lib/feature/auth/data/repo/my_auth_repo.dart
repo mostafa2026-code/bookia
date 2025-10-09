@@ -16,7 +16,6 @@ class MyAuthRepo {
         body: params.fromObjectToJson(),
       );
 
-      
       if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
           myRes.data != null) {
         try {
@@ -43,6 +42,7 @@ class MyAuthRepo {
       return null;
     }
   }
+
   static Future<LoginResponse?> login(AuthParams params) async {
     try {
       print('Sending registration body: ${params.fromObjectToJson()}');
@@ -78,8 +78,6 @@ class MyAuthRepo {
       return null;
     }
   }
-
-
 
   static Future<MyAuthREsponse?> forgetPassword(AuthParams params) async {
     try {
