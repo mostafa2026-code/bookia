@@ -4,9 +4,7 @@ import 'package:bookia/component/widgets/myappbar.dart';
 import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
-import 'package:bookia/feature/auth/presentation/cubit/state/auth_states.dart';
-import 'package:bookia/feature/auth/presentation/forgetpassword/cubit/cubit/forget_password_cubit.dart';
-import 'package:bookia/feature/auth/presentation/forgetpassword/cubit/state/forget_password_states.dart';
+import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart%20';
@@ -17,22 +15,10 @@ class Forgetpassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordCubit forgetPasswordCubit = context
-        .read<ForgetPasswordCubit>();
-    return BlocListener<ForgetPasswordCubit, ForgetPasswordStates>(
-      listener: (context, state) {
-        if (state is ForgetPasswordErrorState) {
-          MyNavigation.pop(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.error), backgroundColor: Colors.red),
-          );
-        } else if (state is AuthLoadingState) {
-          showloadingDialog(context);
-        } else if (state is AuthSuccessState) {
-          MyNavigation.pop(context);
-          MyNavigation.pushReplace(context, MyRouts.otpverication, null);
-        }
-      },
+    
+    return BlocProvider(
+      create: (context) => AuthCubit(),
+      
       child: Scaffold(
         appBar: ArrowbackAppBar(),
         body: SingleChildScrollView(
@@ -40,7 +26,7 @@ class Forgetpassword extends StatelessWidget {
             padding: EdgeInsets.all(24),
             child: SafeArea(
               child: Form(
-                key: forgetPasswordCubit.formKey,
+                key:AuthCubit().forgetpasswordformKey ,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,17 +49,19 @@ class Forgetpassword extends StatelessWidget {
                         }
                         return null;
                       },
-                      controller: forgetPasswordCubit.emailController,
+                      controller: AuthCubit().foregtpasswordemailcontroller,
                       decoration: InputDecoration(hintText: "Enter your email"),
                     ),
                     Gap(32),
                     Center(
                       child: Mainbottm(
                         onpressed: () {
-                          if (forgetPasswordCubit.formKey.currentState!
-                              .validate()) {
-                            forgetPasswordCubit.forgetPassword();
-                          }
+                          
+                          MyNavigation.push(
+                            context,
+                            MyRouts.otpverication,
+                            AuthCubit().emailcontroller,
+                          );
                         },
                         title: "Send Code",
                       ),

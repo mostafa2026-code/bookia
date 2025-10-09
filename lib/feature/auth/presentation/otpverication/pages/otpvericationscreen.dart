@@ -1,7 +1,10 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
 import 'package:bookia/component/widgets/myappbar.dart';
+import 'package:bookia/core/routes/myroutes.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pinput/pinput.dart';
@@ -9,6 +12,7 @@ import 'package:pinput/pinput.dart';
 @immutable
 class Otpvericationscreen extends StatefulWidget {
   const Otpvericationscreen({super.key});
+  // final String email;
 
   @override
   State<Otpvericationscreen> createState() => _OtpvericationscreenState();
@@ -16,7 +20,7 @@ class Otpvericationscreen extends StatefulWidget {
 
 class _OtpvericationscreenState extends State<Otpvericationscreen> {
   // ignore: non_constant_identifier_names
-  final TextEditingController otp_controller = TextEditingController();
+  TextEditingController otp_controller = AuthCubit().otpController;
   // ignore: non_constant_identifier_names
   final FocusNode otp_focus = FocusNode();
 
@@ -55,7 +59,7 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                     Pinput(
                       controller: otp_controller,
                       focusNode: otp_focus,
-                      length: 4,
+                      length: 6,
                       focusedPinTheme: PinTheme(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -68,7 +72,16 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                 ),
 
                 const Gap(32),
-                Mainbottm(onpressed: () {}, title: "Verify"),
+                Mainbottm(
+                  onpressed: () {
+                    MyNavigation.pushReplace(
+                      context,
+                      MyRouts.createNewPassword,
+                      null,
+                    );
+                  },
+                  title: "Verify",
+                ),
               ],
             ),
           ),

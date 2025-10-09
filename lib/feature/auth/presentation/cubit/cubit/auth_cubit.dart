@@ -14,10 +14,15 @@ class AuthCubit extends Cubit<AuthStates> {
   final TextEditingController passwordcontroller = TextEditingController();
   final TextEditingController loginemailcontroller = TextEditingController();
   final TextEditingController loginpasswordcontroller = TextEditingController();
+  final TextEditingController foregtpasswordemailcontroller =
+      TextEditingController();
   final TextEditingController confirmpasswordcontroller =
       TextEditingController();
+
+  final TextEditingController otpController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   GlobalKey<FormState> loginformKey = GlobalKey<FormState>();
+  GlobalKey<FormState> forgetpasswordformKey = GlobalKey<FormState>();
   Future<void> register() async {
     if (!formKey.currentState!.validate()) return;
     emit(AuthLoadingState());
@@ -59,72 +64,15 @@ class AuthCubit extends Cubit<AuthStates> {
     }
   }
 
-  //   void forgetPassword() async {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
+  // void checkOtp() async {
+  //   var res = await MyAuthRepo.CheckOtp(
+  //     CreateNewPasswordRequest(
+  //       verifycode: otpController.text,
+  //       email: foregtpasswordcontroller.text.trim(),
+  //     ),
+  //   );
+  //   if (res!.data == null) {
+  //     return true;
   //   }
-
-  //   void resetPassword() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
-  //   void otpVerification() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
-  //   void logOut() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
-  //   void cheeckForgetPassword() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
-  //   void resendVerifyLink() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
-  //   void verifyEmail() {
-  //     emit(AuthLoadingState());
-
-  //     emit(AuthSuccessState());
-
-  //     emit(AuthErrorState());
-  //   }
-
   // }
 }
-
-// static Future<MyAuthREsponse?> register(AuthParams params) async {
-//   try {
-//     Response myRes = await MyDioProvider.post(
-//       endpoint: MyEndPoints.register,
-//       body: params.fromObjectToJson(),
-//     );
-
-//     // السماح بكل success codes الممكنة
-
-// }

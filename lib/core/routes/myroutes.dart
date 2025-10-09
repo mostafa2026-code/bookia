@@ -1,3 +1,4 @@
+import 'package:bookia/feature/auth/presentation/createnewpassword/pages/createnewpasswordscreen.dart';
 import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/presentation/pages/main_screen.dart';
@@ -27,6 +28,7 @@ class MyRouts {
   static const String details = '/details';
 
   static const String main = '/mainscreen';
+  static const String createNewPassword = '/createNewPassword';
 
   final GoRouter myroutes = GoRouter(
     routes: [
@@ -61,7 +63,10 @@ class MyRouts {
       GoRoute(
         path: otpverication,
         builder: (context, state) {
-          return Otpvericationscreen();
+          return BlocProvider(
+            create: (context) => AuthCubit(),
+            child: Otpvericationscreen(),
+          );
         },
       ),
       GoRoute(
@@ -92,6 +97,12 @@ class MyRouts {
         path: main,
         builder: (context, state) {
           return const MainScreen();
+        },
+      ),
+      GoRoute(
+        path: createNewPassword,
+        builder: (context, state) {
+          return const Createnewpasswordscreen();
         },
       ),
     ],
