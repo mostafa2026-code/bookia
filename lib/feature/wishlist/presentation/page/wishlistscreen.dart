@@ -24,27 +24,26 @@ class Wishlistscreen extends StatelessWidget {
         ),
         body: BlocBuilder<WishListCubit, WishListState>(
           builder: (context, state) {
-            WishListCubit wishListCubit=context.read<WishListCubit>();
+            WishListCubit wishListCubit = context.read<WishListCubit>();
             if (state is! WishListSucces) {
               return const Center(child: CircularProgressIndicator());
-            }if(wishListCubit.books.isEmpty){
-              return Center(child: Text("No Products Found"));
-            }else{
-              return Padding(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [WishListListView(
-                  books: wishListCubit.books,
-                  cubit: wishListCubit,
-
-                )],
-              ),
-            );
-
             }
-
-            
+            if (wishListCubit.books.isEmpty) {
+              return Center(child: Text("No Products Found"));
+            } else {
+              return Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    WishListListView(
+                      books: wishListCubit.books,
+                      cubit: wishListCubit,
+                    ),
+                  ],
+                ),
+              );
+            }
           },
         ),
       ),

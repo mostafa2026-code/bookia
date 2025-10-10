@@ -15,10 +15,9 @@ class Forgetpassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return BlocProvider(
       create: (context) => AuthCubit(),
-      
+
       child: Scaffold(
         appBar: ArrowbackAppBar(),
         body: SingleChildScrollView(
@@ -26,7 +25,7 @@ class Forgetpassword extends StatelessWidget {
             padding: EdgeInsets.all(24),
             child: SafeArea(
               child: Form(
-                key:AuthCubit().forgetpasswordformKey ,
+                key: AuthCubit().forgetpasswordformKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +55,6 @@ class Forgetpassword extends StatelessWidget {
                     Center(
                       child: Mainbottm(
                         onpressed: () {
-                          
                           MyNavigation.push(
                             context,
                             MyRouts.otpverication,

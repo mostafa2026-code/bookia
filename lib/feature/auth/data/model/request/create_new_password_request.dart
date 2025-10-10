@@ -2,19 +2,12 @@ class CreateNewPasswordRequest {
   final String verifycode;
   final String email;
 
+  CreateNewPasswordRequest({required this.verifycode, required this.email});
 
-  CreateNewPasswordRequest( {
-    required this.verifycode,
-    required this.email,
-  
-  });
-
-
-
-  Map<String, dynamic> fromObJectToJson(){
+  Map<String, dynamic> fromObJectToJson() {
     Map<String, dynamic> requestJson = {
       "verify_code": verifycode,
-      "email": email
+      "email": email,
     };
     return requestJson;
   }

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class WishListListView extends StatelessWidget {
   const WishListListView({super.key, required this.books, required this.cubit});
-  
+
   final List<WishListBook> books;
-   final WishListCubit cubit;
+  final WishListCubit cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,9 @@ class WishListListView extends StatelessWidget {
         },
         itemBuilder: (BuildContext context, int index) {
           WishListBook book = books[index];
-          return Expanded(child: WishListContainer(book: book, cubit: cubit,));
+          return Expanded(
+            child: WishListContainer(book: book, cubit: cubit),
+          );
         },
       ),
     );

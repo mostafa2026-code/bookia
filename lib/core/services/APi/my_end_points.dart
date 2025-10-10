@@ -17,4 +17,5 @@ class MyEndPoints {
   static const String searchProduct = "/products-search?name=aqaaaq";
   static const String bestSellers = "/products-bestseller";
   static const String newArrivals = "/products-new-arrivals";
+  static const String productsSearch = "/products-search";
 }

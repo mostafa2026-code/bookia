@@ -10,18 +10,19 @@ class WishListCubit extends Cubit<WishListState> {
   List<WishListBook> books = [];
   void getWishList() async {
     try {
-  emit(WishListLoading());
-  var res = await WishListRepo.getwishList();
-  if (res == null) {
-    emit((WishListError()));
-  } else {
-    books = res.data.data;
-    emit(WishListSucces());
+      emit(WishListLoading());
+      var res = await WishListRepo.getwishList();
+      if (res == null) {
+        emit((WishListError()));
+      } else {
+        books = res.data.data;
+        emit(WishListSucces());
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+    }
   }
-} on Exception catch (e) {
-  log(e.toString());
-}
-  }
+
   void removeFromWishList() async {
     emit(WishListLoading());
     var res = await WishListRepo.removeFromWishlist();

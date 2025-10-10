@@ -2,6 +2,7 @@ import 'package:bookia/feature/auth/presentation/createnewpassword/pages/createn
 import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/presentation/pages/main_screen.dart';
+import 'package:bookia/feature/home/presentation/pages/search_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/forgetpassword/pages/forgetpassword.dart';
@@ -26,6 +27,7 @@ class MyRouts {
   static const String profile = '/profile';
   static const String editprofile = '/editprofile';
   static const String details = '/details';
+  static const String search = '/search';
 
   static const String main = '/mainscreen';
   static const String createNewPassword = '/createNewPassword';
@@ -97,6 +99,12 @@ class MyRouts {
         path: main,
         builder: (context, state) {
           return const MainScreen();
+        },
+      ),
+      GoRoute(
+        path: search,
+        builder: (context, state) {
+          return const SearchScreen();
         },
       ),
       GoRoute(

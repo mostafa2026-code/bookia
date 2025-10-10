@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
+import 'package:bookia/feature/home/data/model/search_response/search_response/search_response.dart';
 import 'package:bookia/feature/home/data/model/slider_response/slider_response/slider_response.dart';
 import 'package:dio/dio.dart';
 
@@ -38,11 +39,14 @@ class HomeRepo {
     }
   }
 
-  static Future<SliderResponse?> search() async {
+  static Future<SearchResponse?> search(String value) async {
     try {
-      Response res = await MyDioProvider.get(endpoint: MyEndPoints.getSlider);
+      Response res = await MyDioProvider.get(
+        endpoint: MyEndPoints.productsSearch,
+        queryParameters: {"name": value},
+      );
       if (res.statusCode == 200) {
-        return SliderResponse.fromJson(res.data);
+        return SearchResponse.fromJson(res.data);
       } else {
         return null;
       }
