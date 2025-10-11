@@ -14,7 +14,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final Debouncer _debouncer = Debouncer(milliseconds: 500);
+  final Debouncer _debouncer = Debouncer(milliseconds: 5000);
   final TextEditingController searchController = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
           builder: (context, state) {
             HomeCubit cubit = context.watch<HomeCubit>();
             if (state is HomeLoading) {
-              return const CircularProgressIndicator.adaptive();
+              return Center(child: const CircularProgressIndicator.adaptive());
             } else if (state is HomeError) {
               return Center(child: Text(state.error));
             } else if (state is HomeSuccess) {
@@ -66,7 +66,6 @@ class _SearchScreenState extends State<SearchScreen> {
               );
             }
             return Container();
-          
           },
         ),
       ),

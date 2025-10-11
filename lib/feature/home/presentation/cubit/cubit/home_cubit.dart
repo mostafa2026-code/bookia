@@ -1,4 +1,3 @@
-import 'package:bookia/feature/auth/data/repo/my_auth_repo.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/data/model/search_response/search_response/product.dart';
