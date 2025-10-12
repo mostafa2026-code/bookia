@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 class MyDioProvider {
   static late Dio myDio;
 
+  static String? token = "9933|spFzxhZc55oAo4h057kGRvYG13TzMuFRShjjFuRE";
+
   static void init() {
     myDio = Dio(
       BaseOptions(

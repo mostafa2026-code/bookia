@@ -3,7 +3,8 @@ import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutAndTotal extends StatelessWidget {
-  const CheckoutAndTotal({super.key});
+  const CheckoutAndTotal({super.key, required this.total});
+  final  String total;
 
   @override
   Widget build(BuildContext context) {

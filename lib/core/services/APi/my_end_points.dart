@@ -18,4 +18,11 @@ class MyEndPoints {
   static const String bestSellers = "/products-bestseller";
   static const String newArrivals = "/products-new-arrivals";
   static const String productsSearch = "/products-search";
+
+
+  static const String cart = "/cart";
+  static const String addCart = "/add-to-cart";
+  static const String updateCart = "/update-cart";
+  static const String deleteCart = "/remove-from-cart";
+
 }
