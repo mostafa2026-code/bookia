@@ -54,7 +54,22 @@ class CartItemContainer extends StatelessWidget {
                       ),
                       child: Center(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (item.itemQuantity! < item.itemProductStock!) {
+                              item.itemQuantity = item.itemQuantity! + 1;
+                              cubit.update(
+                                item.itemId ?? 0,
+                                item.itemQuantity ?? 0,
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text("Out of stock"),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
+                            }
+                          },
                           padding: EdgeInsets.zero,
                           constraints: BoxConstraints(),
                           icon: Icon(Icons.add, color: Colors.black),
@@ -62,7 +77,7 @@ class CartItemContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      number.toString(),
+                      item.itemQuantity.toString(),
                       style: MytextStyles.main16_400().copyWith(fontSize: 18),
                     ),
                     Container(
@@ -74,7 +89,15 @@ class CartItemContainer extends StatelessWidget {
                       ),
                       child: Center(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (item.itemQuantity! > 1) {
+                              item.itemQuantity = item.itemQuantity! - 1;
+                              cubit.update(
+                                item.itemId ?? 0,
+                                item.itemQuantity ?? 5,
+                              );
+                            } else {}
+                          },
                           padding: EdgeInsets.zero,
                           constraints: BoxConstraints(),
                           icon: Icon(Icons.remove, color: Colors.black),
