@@ -6,16 +6,15 @@ class CartListView extends StatelessWidget {
   const CartListView({super.key, this.cartItems});
   final List<CartItem>? cartItems;
 
-
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: 1,
+      itemCount: cartItems!.length,
       separatorBuilder: (BuildContext context, int index) {
         return Divider();
       },
       itemBuilder: (BuildContext context, int index) {
-        return CartItemContainer(item: cartItems![index],);
+        return CartItemContainer(item: cartItems![index]);
       },
     );
   }

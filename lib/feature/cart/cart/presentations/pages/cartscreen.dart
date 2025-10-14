@@ -11,8 +11,8 @@ class Cartscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => Cartcubit(),
+    return BlocProvider<Cartcubit>(
+      create: (context) => Cartcubit()..getAllCartItems(),
 
       child: Scaffold(
         appBar: AppBar(
@@ -21,24 +21,26 @@ class Cartscreen extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.all(24),
-          child: BlocBuilder(
+          child: BlocBuilder< Cartcubit, CartState>(
             builder: (context, state) {
               Cartcubit cartcubit = context.read<Cartcubit>();
               if (state is CartLoading) {
                 return Center(child: CircularProgressIndicator());
               } else if (state is CartError) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.message)));
+                return Center(child: Text(state.message));
+              } else if (state is CartSuccess) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: CartListView(cartItems: cartcubit.cartList),
+                    ),
+                    CheckoutAndTotal(total: cartcubit.total.toString()),
+                  ],
+                );
+              } else {
+                return Center(child: Text("Something went wrong"));
               }
-
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(child: CartListView()),
-                  CheckoutAndTotal(total: cartcubit.total.toString()),
-                ],
-              );
             },
           ),
         ),

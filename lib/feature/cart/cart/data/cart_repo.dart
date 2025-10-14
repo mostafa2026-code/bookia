@@ -40,12 +40,12 @@ class CartRepo {
     }
   }
 
-  static Future<Response?> removeFromCart(int id) async {
+  static Future<Response?> removeFromCart(int cartItemId) async {
     try {
       Response res = await MyDioProvider.post(
-        endpoint: MyEndPoints.cart,
+        endpoint: MyEndPoints.deleteCart,
         queryParameters: {"Authorization": "Bearer ${MyDioProvider.token}"},
-        body: {"product_id": id},
+        body: {"cart_item_id":cartItemId},
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
         return res;

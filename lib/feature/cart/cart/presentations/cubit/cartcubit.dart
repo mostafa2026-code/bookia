@@ -4,21 +4,19 @@ import 'package:bookia/feature/cart/cart/presentations/cubit/cartstate.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Cartcubit extends Cubit {
+class Cartcubit extends Cubit<CartState> {
   Cartcubit() : super(CartInitial());
   List<CartItem>? cartList = [];
-  late double? total  = 0.0;
+  late double? total = 0.0;
 
   void getAllCartItems() async {
     emit(CartLoading());
     Response? res = await CartRepo.getAllCartItems();
     if (res == null) {
-      emit(CartError(message: res!.statusMessage ?? "Something went wrong"));
+      emit(CartError(message: res!.statusMessage ?? ""));
     } else {
       cartList = res.data!.cartItems;
-      for (var e in cartList!) {
-        total = e.itemProductPriceAfterDiscount! + total!;
-      }
+      total = res.data!.total;
       emit(CartSuccess());
     }
   }
@@ -27,9 +25,11 @@ class Cartcubit extends Cubit {
     emit(CartLoading());
     Response? res = await CartRepo.addTOCart(id);
     if (res == null) {
+      
       emit(CartError(message: res!.statusMessage ?? "Something went wrong"));
     } else {
       cartList = res.data!.cartItems;
+      total = res.data!.total;
       emit(CartSuccess());
     }
   }
@@ -41,6 +41,7 @@ class Cartcubit extends Cubit {
       emit(CartError(message: res!.statusMessage ?? "Something went wrong"));
     } else {
       cartList = res.data!.cartItems;
+      total = res.data!.total;
       emit(CartSuccess());
     }
   }
