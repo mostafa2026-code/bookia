@@ -33,7 +33,7 @@ class Cartscreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: CartListView(cartItems: cartcubit.cartList),
+                      child: CartListView(cartItems: cartcubit.cartList , cubit: cartcubit,),
                     ),
                     CheckoutAndTotal(total: cartcubit.total.toString()),
                   ],

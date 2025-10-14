@@ -153,7 +153,7 @@ class SearchGridView extends StatelessWidget {
           SearchProduct book = products[index];
           return GestureDetector(
             onTap: () {
-              MyNavigation.push(context, MyRouts.details, book);
+              MyNavigation.push(context, MyRouts.details, book , );
             },
             child: SearchGridViewContainer(book: book),
           );

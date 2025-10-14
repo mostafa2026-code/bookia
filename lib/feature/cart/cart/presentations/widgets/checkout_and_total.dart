@@ -19,7 +19,7 @@ class CheckoutAndTotal extends StatelessWidget {
                 "Total:",
                 style: MytextStyles.sub14_400().copyWith(fontSize: 20),
               ),
-              Text("total"),
+              Text(total),
             ],
           ),
           Mainbottm(onpressed: () {}, title: "Checkout"),

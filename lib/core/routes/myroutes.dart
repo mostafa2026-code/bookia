@@ -1,6 +1,7 @@
 import 'package:bookia/feature/auth/presentation/createnewpassword/pages/createnewpasswordscreen.dart';
 import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
+import 'package:bookia/feature/home/presentation/cubit/cubit/home_cubit.dart';
 import 'package:bookia/feature/home/presentation/pages/main_screen.dart';
 import 'package:bookia/feature/home/presentation/pages/search_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -86,7 +87,10 @@ class MyRouts {
       GoRoute(
         path: details,
         builder: (context, state) {
-          return DetailsScreen(book: state.extra as Product);
+          return BlocProvider(
+            create: (context) => HomeCubit(),
+            child: DetailsScreen(book: state.extra as Product),
+          );
         },
       ),
       GoRoute(

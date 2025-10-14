@@ -1,3 +1,5 @@
+import 'package:bookia/feature/cart/cart/data/cart_repo.dart';
+import 'package:bookia/feature/cart/cart/data/model/cart_response/cart_response.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/data/model/search_response/search_response/product.dart';
@@ -56,4 +58,18 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeError(res!.message ?? ""));
     }
   }
+
+
+  Future<void> addToCart(int id) async {
+    emit(HomeLoading());
+
+    CartResponse? res = await CartRepo.addTOCart(id);
+    if (res != null) {
+      
+      emit(HomeSuccess());
+    } else {
+      emit(HomeError(res!.message ?? ""));
+    }
+  }
+
 }
