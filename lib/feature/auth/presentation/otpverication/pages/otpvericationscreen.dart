@@ -40,11 +40,13 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
         if (state is AuthLoadingState) {
           const Center(child: CircularProgressIndicator());
         } else if (state is AuthErrorState) {
+          MyNavigation.pop(context);
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
         } else {
-          MyNavigation.pushReplace(context, MyRouts.createNewPassword, null);
+          MyNavigation.pop(context);
+          MyNavigation.pushReplace(context, MyRouts.createNewPassword, otp_controller.text.trim());
         }
       },
 
@@ -89,11 +91,7 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                   const Gap(32),
                   Mainbottm(
                     onpressed: () {
-                      MyNavigation.pushReplace(
-                        context,
-                        MyRouts.createNewPassword,
-                        null,
-                      );
+                      AuthCubit cubit = context.read<AuthCubit>();
                     },
                     title: "Verify",
                   ),

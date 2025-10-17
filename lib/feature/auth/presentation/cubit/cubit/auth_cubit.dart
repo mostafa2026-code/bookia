@@ -64,24 +64,48 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(AuthErrorState('log in failed '));
     }
   }
+
   Future<void> checkotp() async {
     if (!forgetpasswordformKey.currentState!.validate()) return;
 
     emit(AuthLoadingState());
 
-  var checkotpResponse = await MyAuthRepo.checkOtp(CreateNewPasswordRequest(verifycode: otpController.text.trim(), email: foregtpasswordemailcontroller.text.trim(),)); 
+    var checkotpResponse = await MyAuthRepo.checkOtp(
+      CreateNewPasswordRequest(
+        verifycode: otpController.text.trim(),
+        email: foregtpasswordemailcontroller.text.trim(),
+      ),
+    );
 
-    
-
-    if (checkotpResponse!.statusCode == 200||checkotpResponse.statusCode == 201) {
+    if (checkotpResponse!.statusCode == 200 ||
+        checkotpResponse.statusCode == 201) {
       emit(AuthSuccessState());
     } else {
       emit(AuthErrorState(checkotpResponse.statusMessage.toString()));
     }
   }
+  Future<void> createNew(
+   
+
+  ) async {
+    if (!forgetpasswordformKey.currentState!.validate()) return;
+
+    emit(AuthLoadingState());
+
+    var createNewResponse = await MyAuthRepo.createNew(
+      int.parse(otpController.text.trim()),
+      passwordcontroller.text.trim(),
+      confirmpasswordcontroller.text.trim(),
+    );
+
+    if (createNewResponse!.statusCode == 200 ||
+        createNewResponse.statusCode == 201) {
+      emit(AuthSuccessState());
+    } else {
+      emit(AuthErrorState(createNewResponse.statusMessage.toString()));
+    }
+  }
 
 
- 
-  
- 
+
 }

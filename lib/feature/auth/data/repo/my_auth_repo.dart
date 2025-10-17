@@ -80,8 +80,6 @@ class MyAuthRepo {
     }
   }
 
-
-
   static Future<Response?> checkOtp(CreateNewPasswordRequest req) async {
     try {
       log('Sending registration body: ${req.fromObJectToJson()}');
@@ -118,7 +116,47 @@ class MyAuthRepo {
     }
   }
 
+  static Future<Response?> createNew(
+    int otp,
+    String password,
+    String confirm,
+  ) async {
+    try {
+      log('Sending registration body: ');
+      Response myRes = await MyDioProvider.post(
+        endpoint: MyEndPoints.resetPassword,
+        body: {
+          "verify_code": otp,
+          "new_password": password,
+          "new_password_confirmation": confirm,
+        },
+      );
 
-
-  
+      // السماح بكل success codes الممكنة
+      if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
+          myRes.data != null) {
+        try {
+          return myRes;
+        } catch (e) {
+          log('Error parsing response: $e, data: ${myRes.data}');
+          return null;
+        }
+      } else {
+        log(
+          'Registration failed with status: ${myRes.statusCode}, message: ${myRes.data}',
+        );
+        return null;
+      }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        log('DioError response: ${e.response!.data}');
+      } else {
+        log('DioError message: ${e.message}');
+      }
+      return null;
+    } catch (e) {
+      log('Unexpected error: $e');
+      return null;
+    }
+  }
 }

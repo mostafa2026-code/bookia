@@ -1,4 +1,5 @@
 import 'package:bookia/feature/auth/presentation/createnewpassword/pages/createnewpasswordscreen.dart';
+import 'package:bookia/feature/auth/presentation/passwordchangedsuccess/pages/passwordchangedsuccessfullyscreen.dart';
 import 'package:bookia/feature/bookdetails/pages/details_screen.dart';
 import 'package:bookia/feature/home/data/model/home_response/product.dart';
 import 'package:bookia/feature/home/presentation/cubit/cubit/home_cubit.dart';
@@ -32,6 +33,7 @@ class MyRouts {
 
   static const String main = '/mainscreen';
   static const String createNewPassword = '/createNewPassword';
+  static const String passwordChangedSuccessfully = '/passwordChangedSuccessfully';
 
   final GoRouter myroutes = GoRouter(
     routes: [
@@ -68,7 +70,7 @@ class MyRouts {
         builder: (context, state) {
           return BlocProvider(
             create: (context) => AuthCubit(),
-            child: Otpvericationscreen(  email:  state.extra as String),
+            child: Otpvericationscreen(email: state.extra as String),
           );
         },
       ),
@@ -112,9 +114,18 @@ class MyRouts {
         },
       ),
       GoRoute(
+        path: search,
+        builder: (context, state) {
+          return const Passwordchangedsuccessfullyscreen();
+        },
+      ),
+      GoRoute(
         path: createNewPassword,
         builder: (context, state) {
-          return const Createnewpasswordscreen();
+          return BlocProvider(
+            create: (context) => AuthCubit(),
+            child: Createnewpasswordscreen(otp: state.extra as String),
+          );
         },
       ),
     ],
