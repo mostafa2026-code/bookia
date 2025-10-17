@@ -21,7 +21,7 @@ class Cartscreen extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.all(24),
-          child: BlocBuilder< Cartcubit, CartState>(
+          child: BlocBuilder<Cartcubit, CartState>(
             builder: (context, state) {
               Cartcubit cartcubit = context.read<Cartcubit>();
               if (state is CartLoading) {
@@ -33,7 +33,10 @@ class Cartscreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: CartListView(cartItems: cartcubit.cartList , cubit: cartcubit,),
+                      child: CartListView(
+                        cartItems: cartcubit.cartList,
+                        cubit: cartcubit,
+                      ),
                     ),
                     CheckoutAndTotal(total: cartcubit.total.toString()),
                   ],

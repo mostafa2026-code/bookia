@@ -4,7 +4,7 @@ import 'package:bookia/feature/cart/cart/presentations/widgets/cart_item_contain
 import 'package:flutter/material.dart';
 
 class CartListView extends StatelessWidget {
-  const CartListView({super.key, this.cartItems,required this.cubit});
+  const CartListView({super.key, this.cartItems, required this.cubit});
   final Cartcubit cubit;
   final List<CartItem>? cartItems;
 
@@ -16,7 +16,7 @@ class CartListView extends StatelessWidget {
         return Divider();
       },
       itemBuilder: (BuildContext context, int index) {
-        return CartItemContainer(item: cartItems![index], cubit:cubit ,);
+        return CartItemContainer(item: cartItems![index], cubit: cubit);
       },
     );
   }

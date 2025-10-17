@@ -21,15 +21,12 @@ class MyDioProvider {
     Object? body,
     Map<String, dynamic>? queryParameters,
     Options? options,
-    
   }) async {
     Response myRes = await myDio.post(
       endpoint,
       data: body,
       queryParameters: queryParameters,
       options: options,
-      
-    
     );
     return myRes;
   }

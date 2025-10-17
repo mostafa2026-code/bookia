@@ -68,7 +68,7 @@ class MyRouts {
         builder: (context, state) {
           return BlocProvider(
             create: (context) => AuthCubit(),
-            child: Otpvericationscreen(),
+            child: Otpvericationscreen(  email:  state.extra as String),
           );
         },
       ),

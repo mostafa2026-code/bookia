@@ -58,7 +58,7 @@ class Forgetpassword extends StatelessWidget {
                           MyNavigation.push(
                             context,
                             MyRouts.otpverication,
-                            AuthCubit().emailcontroller,
+                            AuthCubit().foregtpasswordemailcontroller.text.trim(),
                           );
                         },
                         title: "Send Code",

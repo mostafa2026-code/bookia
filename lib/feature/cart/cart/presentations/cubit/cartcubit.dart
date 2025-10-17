@@ -24,8 +24,6 @@ class Cartcubit extends Cubit<CartState> {
     }
   }
 
- 
-
   void removeFromCart(int cartItemId) async {
     emit(CartLoading());
     CartResponse? res = await CartRepo.removeFromCart(cartItemId);
@@ -38,6 +36,7 @@ class Cartcubit extends Cubit<CartState> {
       emit(CartSuccess());
     }
   }
+
   void update(int cartItemId, int quantaity) async {
     emit(CartLoading());
     CartResponse? res = await CartRepo.updateCart(cartItemId, quantaity);

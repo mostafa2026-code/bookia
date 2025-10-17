@@ -59,17 +59,14 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-
   Future<void> addToCart(int id) async {
     emit(HomeLoading());
 
     CartResponse? res = await CartRepo.addTOCart(id);
     if (res != null) {
-      
       emit(HomeSuccess());
     } else {
       emit(HomeError(res!.message ?? ""));
     }
   }
-
 }

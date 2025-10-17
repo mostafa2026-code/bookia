@@ -12,7 +12,6 @@ class CartItemContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int number = 1;
     return Container(
       decoration: BoxDecoration(),
       child: Row(

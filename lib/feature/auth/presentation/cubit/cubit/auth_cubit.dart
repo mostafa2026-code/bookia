@@ -1,6 +1,7 @@
 import 'package:bookia/feature/auth/data/model/login/login_response/login_response.dart';
 import 'package:bookia/feature/auth/data/model/my_auth_r_esponse/my_auth_r_esponse.dart';
 import 'package:bookia/feature/auth/data/model/request/auth_params.dart';
+import 'package:bookia/feature/auth/data/model/request/create_new_password_request.dart';
 import 'package:bookia/feature/auth/data/repo/my_auth_repo.dart';
 import 'package:bookia/feature/auth/presentation/cubit/state/auth_states.dart';
 
@@ -63,16 +64,24 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(AuthErrorState('log in failed '));
     }
   }
+  Future<void> checkotp() async {
+    if (!forgetpasswordformKey.currentState!.validate()) return;
 
-  // void checkOtp() async {
-  //   var res = await MyAuthRepo.CheckOtp(
-  //     CreateNewPasswordRequest(
-  //       verifycode: otpController.text,
-  //       email: foregtpasswordcontroller.text.trim(),
-  //     ),
-  //   );
-  //   if (res!.data == null) {
-  //     return true;
-  //   }
-  // }
+    emit(AuthLoadingState());
+
+  var checkotpResponse = await MyAuthRepo.checkOtp(CreateNewPasswordRequest(verifycode: otpController.text.trim(), email: foregtpasswordemailcontroller.text.trim(),)); 
+
+    
+
+    if (checkotpResponse!.statusCode == 200||checkotpResponse.statusCode == 201) {
+      emit(AuthSuccessState());
+    } else {
+      emit(AuthErrorState(checkotpResponse.statusMessage.toString()));
+    }
+  }
+
+
+ 
+  
+ 
 }

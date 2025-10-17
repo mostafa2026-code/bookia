@@ -80,6 +80,8 @@ class MyAuthRepo {
     }
   }
 
+
+
   static Future<Response?> checkOtp(CreateNewPasswordRequest req) async {
     try {
       log('Sending registration body: ${req.fromObJectToJson()}');
@@ -115,4 +117,8 @@ class MyAuthRepo {
       return null;
     }
   }
+
+
+
+  
 }

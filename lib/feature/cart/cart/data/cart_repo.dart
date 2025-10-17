@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';
 import 'package:bookia/feature/cart/cart/data/model/cart_response/cart_response.dart';
+import 'package:bookia/feature/cart/cart/data/model/place_request.dart';
 import 'package:dio/dio.dart';
 
 class CartRepo {
@@ -73,6 +74,25 @@ class CartRepo {
           headers: {"Authorization": "Bearer ${MyDioProvider.token}"},
         ),
         body: {"cart_item_id": cartItemId, "quantity": quantity},
+      );
+      if (res.statusCode == 200 || res.statusCode == 201) {
+        return CartResponse.fromJson(res.data);
+      } else {
+        return null;
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+  static Future<CartResponse?> placeOrder(PlaceRequest place_request) async {
+    try {
+      Response res = await MyDioProvider.post(
+        endpoint: MyEndPoints.placeorder,
+        options: Options(
+          headers: {"Authorization": "Bearer ${MyDioProvider.token}"},
+        ),
+        body: place_request.tojson(),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
         return CartResponse.fromJson(res.data);

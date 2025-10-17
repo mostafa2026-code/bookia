@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CheckoutAndTotal extends StatelessWidget {
   const CheckoutAndTotal({super.key, required this.total});
-  final  String total;
+  final String total;
 
   @override
   Widget build(BuildContext context) {
