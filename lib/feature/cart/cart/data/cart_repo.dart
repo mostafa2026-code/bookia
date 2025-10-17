@@ -85,14 +85,15 @@ class CartRepo {
       return null;
     }
   }
-  static Future<CartResponse?> placeOrder(PlaceRequest place_request) async {
+
+  static Future<CartResponse?> placeOrder(PlaceRequest placeRequest) async {
     try {
       Response res = await MyDioProvider.post(
         endpoint: MyEndPoints.placeorder,
         options: Options(
           headers: {"Authorization": "Bearer ${MyDioProvider.token}"},
         ),
-        body: place_request.tojson(),
+        body: placeRequest.tojson(),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
         return CartResponse.fromJson(res.data);

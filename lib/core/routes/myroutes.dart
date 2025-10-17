@@ -33,7 +33,8 @@ class MyRouts {
 
   static const String main = '/mainscreen';
   static const String createNewPassword = '/createNewPassword';
-  static const String passwordChangedSuccessfully = '/passwordChangedSuccessfully';
+  static const String passwordChangedSuccessfully =
+      '/passwordChangedSuccessfully';
 
   final GoRouter myroutes = GoRouter(
     routes: [
@@ -114,7 +115,7 @@ class MyRouts {
         },
       ),
       GoRoute(
-        path: search,
+        path: passwordChangedSuccessfully,
         builder: (context, state) {
           return const Passwordchangedsuccessfullyscreen();
         },

@@ -1,10 +1,11 @@
 import 'package:bookia/core/services/APi/my_end_points.dart';
+import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:dio/dio.dart';
 
 class MyDioProvider {
   static late Dio myDio;
 
-  static String? token = "10289|QWqDeqrjs7Qr8WLG9R7sPzihDLhC4FnER4u4xYNp";
+  static String? token = SharedPref.getToken();
 
   static void init() {
     myDio = Dio(

@@ -19,16 +19,18 @@ class Createnewpasswordscreen extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthLoadingState) {
           const Center(child: CircularProgressIndicator());
-        }else if (state is AuthErrorState) {
+        } else if (state is AuthErrorState) {
           MyNavigation.pop(context);
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
-
-        }
-        else if (state is AuthSuccessState) {
+        } else if (state is AuthSuccessState) {
           MyNavigation.pop(context);
-          MyNavigation.pushReplace(context, MyRouts.passwordChangedSuccessfully, null);
+          MyNavigation.pushReplace(
+            context,
+            MyRouts.passwordChangedSuccessfully,
+            null,
+          );
         }
       },
       child: Scaffold(
@@ -63,10 +65,13 @@ class Createnewpasswordscreen extends StatelessWidget {
                   ),
                   Gap(100),
                   Center(
-                    child: Mainbottm(onpressed: () {
-                      AuthCubit cubit = context.read<AuthCubit>();
-                      cubit.createNew();
-                    }, title: "Reset Password"),
+                    child: Mainbottm(
+                      onpressed: () {
+                        AuthCubit cubit = context.read<AuthCubit>();
+                        cubit.createNew();
+                      },
+                      title: "Reset Password",
+                    ),
                   ),
                 ],
               ),

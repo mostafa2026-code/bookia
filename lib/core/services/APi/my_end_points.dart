@@ -22,5 +22,4 @@ class MyEndPoints {
   static const String updateCart = "/update-cart";
   static const String deleteCart = "/remove-from-cart";
   static const String placeorder = "/place-order";
-
 }

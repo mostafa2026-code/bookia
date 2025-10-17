@@ -1,60 +1,42 @@
-// import 'dart:convert';
+import 'dart:convert';
 
-// import 'package:bookia/feature/auth/data/model/user_model.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:bookia/feature/auth/data/model/login/login_response/user.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// class SharedPref {
-//   static late SharedPreferences? prefs;
-//   static void init() async {
-//     prefs = await SharedPreferences.getInstance();
-//   }
+class SharedPref {
+static    SharedPreferences ?sharedPreferences;
+  Future<void> init() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+  }
 
-//   static void  saveUserData(UserModel ? myUser){
-//     if(myUser==null){
-//       return;
-//     }else{
-//       Map json=myUser.toJson(myUser);
-//       var jsonToString = jsonEncode(json);
-//       prefs!.setString('user', jsonToString);
-//     }
+  static void saveUserData(User user) {
+    if (User == user) return;
+    Map<String, dynamic> userMap = user.toJson();
+    String userString = jsonEncode(userMap);
+    sharedPreferences!.setString("userData", userString);
+  }
 
-//   }
+  static User getUserData() {
+    String userString = sharedPreferences!.getString("userData") ?? "";
+    Map<String, dynamic> userMap = jsonDecode(userString);
+    User user = User.fromJson(userMap);
+    return user;
+  }
 
-//   static UserModel? getUserData(){
-//     String? userString=prefs!.getString('user');
-//     if(userString==null){
-//       return null;
-//     }else{
-//       Map<String,dynamic> userMap=jsonDecode(userString);
-//       UserModel userModel=UserModel(
-//         name: userMap['name'],
-//         email: userMap['email'],
-//         password: userMap['password'],
-//         phone: userMap['phone'],
-//         image: userMap['image'],
-//         token: userMap['token'],
-//         id: userMap['id'],
-//       );
-//       return userModel;
-//     }
-//   }
+  static void removeUserData() {
+    sharedPreferences!.remove("userData");
+  }
 
-//   static void saveDate(String key, dynamic value) {
-//     if (value is int) {
-//       prefs!.setInt(key, value);
-//     } else if (value is String) {
-//       prefs!.setString(key, value);
-//     } else if (value is double) {
-//       prefs!.setDouble(key, value);
-//     } else if (value is bool) {
-//       prefs!.setBool(key, value);
-//     }
-//   }
+  static void saveToken(String token) {
+    sharedPreferences!.setString("token", token);
+  }
 
-//   static dynamic getData(String key) {
-//     prefs!.get(key);
-//   }
-//   static void removeData(String key) {
-//     prefs!.remove(key);
-//   }
-// }
+  static String getToken() {
+    return sharedPreferences!.getString("token") ?? "";
+  }
+
+ static  void removeToken() {
+    sharedPreferences!.remove("token");
+  }
+
+}

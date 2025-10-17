@@ -1,5 +1,6 @@
 import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
+import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:bookia/core/utils/themes/mythemes.dart';
 import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 
@@ -8,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SharedPref().init();
   MyDioProvider.init();
   runApp(BlocProvider(create: (_) => AuthCubit(), child: MainApp()));
 }

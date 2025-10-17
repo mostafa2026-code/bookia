@@ -1,4 +1,5 @@
 class PlaceRequest {
+  // ignore: non_constant_identifier_names
   final int governorate_id;
   final String name;
   final String phone;
@@ -6,6 +7,7 @@ class PlaceRequest {
   final String email;
 
   PlaceRequest({
+    // ignore: non_constant_identifier_names
     required this.governorate_id,
     required this.name,
     required this.phone,

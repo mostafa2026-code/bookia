@@ -1,4 +1,6 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/routes/myroutes.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -32,7 +34,12 @@ class Passwordchangedsuccessfullyscreen extends StatelessWidget {
                 style: MytextStyles.sub14_400(),
               ),
               const Gap(40),
-              Mainbottm(onpressed: () {}, title: "Back to Login"),
+              Mainbottm(
+                onpressed: () {
+                  MyNavigation.go(context, MyRouts.login, null);
+                },
+                title: "Back to Login",
+              ),
             ],
           ),
         ),

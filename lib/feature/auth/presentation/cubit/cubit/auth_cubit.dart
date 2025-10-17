@@ -84,10 +84,8 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(AuthErrorState(checkotpResponse.statusMessage.toString()));
     }
   }
-  Future<void> createNew(
-   
 
-  ) async {
+  Future<void> createNew() async {
     if (!forgetpasswordformKey.currentState!.validate()) return;
 
     emit(AuthLoadingState());
@@ -105,7 +103,4 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(AuthErrorState(createNewResponse.statusMessage.toString()));
     }
   }
-
-
-
 }

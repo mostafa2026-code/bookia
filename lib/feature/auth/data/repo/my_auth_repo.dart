@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:bookia/core/services/APi/my_dio_provider.dart';
 import 'package:bookia/core/services/APi/my_end_points.dart';
+import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:bookia/feature/auth/data/model/login/login_response/login_response.dart';
+import 'package:bookia/feature/auth/data/model/login/login_response/user.dart';
 import 'package:bookia/feature/auth/data/model/my_auth_r_esponse/my_auth_r_esponse.dart';
 import 'package:bookia/feature/auth/data/model/request/auth_params.dart';
 import 'package:bookia/feature/auth/data/model/request/create_new_password_request.dart';
@@ -20,7 +22,13 @@ class MyAuthRepo {
       if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
           myRes.data != null) {
         try {
+          User myuser=User.fromJson(myRes.data['data']['user']);
+          SharedPref.saveUserData(myuser);
+          SharedPref.saveToken( myRes.data['data']['token']);
+
+          
           return MyAuthREsponse.fromJson(myRes.data);
+          
         } catch (e) {
           log('Error parsing response: $e, data: ${myRes.data}');
           return null;
@@ -56,6 +64,9 @@ class MyAuthRepo {
       if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
           myRes.data != null) {
         try {
+          User myuser=User.fromJson(myRes.data['data']['user']);
+          SharedPref.saveUserData(myuser);
+          SharedPref.saveToken( myRes.data['data']['token']);
           return LoginResponse.fromJson(myRes.data);
         } catch (e) {
           log('Error parsing response: $e, data: ${myRes.data}');

@@ -46,7 +46,11 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
           ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
         } else {
           MyNavigation.pop(context);
-          MyNavigation.pushReplace(context, MyRouts.createNewPassword, otp_controller.text.trim());
+          MyNavigation.pushReplace(
+            context,
+            MyRouts.createNewPassword,
+            otp_controller.text.trim(),
+          );
         }
       },
 
@@ -92,6 +96,7 @@ class _OtpvericationscreenState extends State<Otpvericationscreen> {
                   Mainbottm(
                     onpressed: () {
                       AuthCubit cubit = context.read<AuthCubit>();
+                      cubit.checkotp();
                     },
                     title: "Verify",
                   ),
