@@ -4,7 +4,7 @@ import 'package:bookia/feature/cart/cart/presentations/cubit/cartstate.dart';
 import 'package:bookia/feature/cart/cart/presentations/widgets/cart_list_view.dart';
 import 'package:bookia/feature/cart/cart/presentations/widgets/checkout_and_total.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart%20';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Cartscreen extends StatelessWidget {
   const Cartscreen({super.key});
@@ -23,7 +23,7 @@ class Cartscreen extends StatelessWidget {
           padding: EdgeInsets.all(24),
           child: BlocBuilder<Cartcubit, CartState>(
             builder: (context, state) {
-              Cartcubit cartcubit = context.read<Cartcubit>();
+              final Cartcubit cartcubit = context.read<Cartcubit>();
               if (state is CartLoading) {
                 return Center(child: CircularProgressIndicator());
               } else if (state is CartError) {

@@ -37,7 +37,7 @@ class Congratulationscreen extends StatelessWidget {
               Gap(40),
               Mainbottm(
                 onpressed: () {
-                  MyNavigation.go(context, MyRouts.otpverication, null);
+                  MyNavigation.go(context, MyRouts.main, 0);
                 },
                 title: "Back to Home",
               ),

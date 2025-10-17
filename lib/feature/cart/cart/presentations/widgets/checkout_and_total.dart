@@ -1,4 +1,6 @@
 import 'package:bookia/component/widgets/mainbottm.dart';
+import 'package:bookia/core/routes/myroutes.dart';
+import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +24,12 @@ class CheckoutAndTotal extends StatelessWidget {
               Text(total),
             ],
           ),
-          Mainbottm(onpressed: () {}, title: "Checkout"),
+          Mainbottm(
+            onpressed: () {
+              MyNavigation.push(context, MyRouts.place, null);
+            },
+            title: "Checkout",
+          ),
         ],
       ),
     );

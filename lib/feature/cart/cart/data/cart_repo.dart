@@ -93,7 +93,7 @@ class CartRepo {
         options: Options(
           headers: {"Authorization": "Bearer ${MyDioProvider.token}"},
         ),
-        body: placeRequest.tojson(),
+        body: placeRequest.tojson()
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
         return CartResponse.fromJson(res.data);
@@ -105,4 +105,7 @@ class CartRepo {
       return null;
     }
   }
+
+
+  
 }
