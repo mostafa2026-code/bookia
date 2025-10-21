@@ -5,17 +5,17 @@ import 'package:bookia/feature/wishlist/data/repo/wish_list_repo.dart';
 import 'package:bookia/feature/wishlist/presentation/cubit/state/wish_list_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WishListCubit extends Cubit<WishListState> {
-  WishListCubit() : super(WishListInitial());
+class HomeCubit extends Cubit<WishListState> {
+  HomeCubit() : super(WishListInitial());
   List<WishListBook> books = [];
   void getWishList() async {
     try {
       emit(WishListLoading());
       var res = await WishListRepo.getwishList();
-      if (res == null) {
-        emit((WishListError()));
+      if (res!.data == null) {
+        emit((WishListError(message: res.error.toString())));
       } else {
-        books = res.data.data;
+        books = res.data!.data ?? [];
         emit(WishListSucces());
       }
     } on Exception catch (e) {
@@ -23,13 +23,24 @@ class WishListCubit extends Cubit<WishListState> {
     }
   }
 
-  void removeFromWishList() async {
+  void removeFromWishList(int productId) async {
     emit(WishListLoading());
-    var res = await WishListRepo.removeFromWishlist();
-    if (res == null) {
-      emit((WishListError()));
+    var res = await WishListRepo.removeFromWishlist(productId);
+    if (res!.data == null) {
+      emit((WishListError(message: res.error.toString())));
     } else {
-      books = res.data.data;
+      books = books = res.data!.data ?? [];
+      emit(WishListSucces());
+    }
+  }
+
+  void addToWishList(int productId) async {
+    emit(WishListLoading());
+    var res = await WishListRepo.addTOWishList(productId);
+    if (res!.data == null) {
+      emit((WishListError(message: res.error.toString())));
+    } else {
+      books = books = res.data!.data ?? [];
       emit(WishListSucces());
     }
   }

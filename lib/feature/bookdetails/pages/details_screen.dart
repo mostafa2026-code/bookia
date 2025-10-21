@@ -34,7 +34,9 @@ class DetailsScreen extends StatelessWidget {
         appBar: ArrowbackAppBar(
           actions: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                context.read<HomeCubit>().addToWishList(book.id ?? 0);
+              },
               child: SvgPicture.asset("assets/images/Bookmark.svg"),
             ),
           ],

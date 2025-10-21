@@ -28,10 +28,6 @@ List<Map<String, dynamic>> governorates = [
   {"id": 27, "governorate_name_en": "Sohag"},
 ];
 
-List<dynamic> govs=governorates.map(  (e) {
+List<dynamic> govs = governorates.map((e) {
   return e["governorate_name_en"];
-}, ).toList();
-
-
-
-
+}).toList();

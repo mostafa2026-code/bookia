@@ -1,6 +1,6 @@
 import 'package:bookia/feature/cart/cart/presentations/pages/cartscreen.dart';
 import 'package:bookia/feature/home/presentation/pages/homescreen.dart';
-import 'package:bookia/feature/profile/profilemain/pages/profilescreen.dart';
+import 'package:bookia/feature/profile/profilemain/presenatation/pages/profilescreen.dart';
 import 'package:bookia/feature/wishlist/presentation/page/wishlistscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

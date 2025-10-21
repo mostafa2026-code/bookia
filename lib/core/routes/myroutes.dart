@@ -15,7 +15,7 @@ import 'package:bookia/feature/auth/presentation/login/pages/loginscreen.dart';
 import 'package:bookia/feature/auth/presentation/otpverication/pages/otpvericationscreen.dart';
 import 'package:bookia/feature/auth/presentation/register/pages/registerscreen.dart';
 
-import 'package:bookia/feature/profile/profilemain/pages/profilescreen.dart';
+import 'package:bookia/feature/profile/profilemain/presenatation/pages/profilescreen.dart';
 import 'package:bookia/feature/profile/updateprofile/editptofile/editprofilescreen.dart';
 import 'package:bookia/feature/splash/splashacreen.dart';
 import 'package:bookia/feature/welcome/welcomescreen.dart';

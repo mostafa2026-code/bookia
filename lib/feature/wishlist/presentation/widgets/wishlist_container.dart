@@ -1,14 +1,15 @@
 import 'package:bookia/core/utils/colors/mycolors.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
+import 'package:bookia/feature/home/presentation/cubit/cubit/home_cubit.dart';
 import 'package:bookia/feature/wishlist/data/model/response/wish_list_response/datum.dart';
-import 'package:bookia/feature/wishlist/presentation/cubit/cubit/wish_list_cubit.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class WishListContainer extends StatelessWidget {
   const WishListContainer({super.key, required this.book, required this.cubit});
   final WishListBook book;
-  final WishListCubit cubit;
+  final HomeCubit cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class WishListContainer extends StatelessWidget {
       background: Container(color: Colors.red, child: const Icon(Icons.delete)),
       direction: DismissDirection.endToStart,
       onDismissed: (direction) {
-        cubit.removeFromWishList();
+        cubit.removeFromWishList(book.id ?? 0);
       },
       child: Container(
         padding: EdgeInsets.all(10),

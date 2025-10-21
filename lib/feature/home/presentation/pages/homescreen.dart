@@ -25,6 +25,7 @@ class Homescreen extends StatelessWidget {
 
           return Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               title: SvgPicture.asset("assets/images/logo 2.svg"),
               actions: [
                 GestureDetector(

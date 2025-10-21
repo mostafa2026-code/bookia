@@ -2,7 +2,8 @@ import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:bookia/feature/cart/cart/data/cart_repo.dart';
 import 'package:bookia/feature/cart/cart/data/model/cart_response/cart_item.dart';
 import 'package:bookia/feature/cart/cart/data/model/cart_response/cart_response.dart';
-import 'package:bookia/feature/cart/cart/data/model/place_request.dart';
+import 'package:bookia/feature/cart/cart/data/model/place_order_request.dart';
+
 import 'package:bookia/feature/cart/cart/presentations/cubit/cartstate.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class Cartcubit extends Cubit<CartState> {
     text: SharedPref.getUserData().phone,
   );
   TextEditingController governorateController = TextEditingController();
-  int selectedGovernorateId = -22;
+  int governorateId = -22;
 
   void getAllCartItems() async {
     emit(CartLoading());
@@ -71,12 +72,12 @@ class Cartcubit extends Cubit<CartState> {
   void placeMyOredr() async {
     emit(CartLoading());
     CartResponse? res = await CartRepo.placeOrder(
-      PlaceRequest(
-        governorate_id: selectedGovernorateId,
+      PlaceOrderRequest(
         name: nameController.text.trim(),
         phone: phoneController.text.trim(),
         address: addressController.text.trim(),
         email: emailController.text.trim(),
+        governorateId: governorateId,
       ),
     );
     if (res!.data == null) {

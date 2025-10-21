@@ -22,13 +22,11 @@ class MyAuthRepo {
       if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
           myRes.data != null) {
         try {
-          User myuser=User.fromJson(myRes.data['data']['user']);
+          User myuser = User.fromJson(myRes.data['data']['user']);
           SharedPref.saveUserData(myuser);
-          SharedPref.saveToken( myRes.data['data']['token']);
+          SharedPref.saveToken(myRes.data['data']['token']);
 
-          
           return MyAuthREsponse.fromJson(myRes.data);
-          
         } catch (e) {
           log('Error parsing response: $e, data: ${myRes.data}');
           return null;
@@ -64,9 +62,9 @@ class MyAuthRepo {
       if ((myRes.statusCode == 200 || myRes.statusCode == 201) &&
           myRes.data != null) {
         try {
-          User myuser=User.fromJson(myRes.data['data']['user']);
+          User myuser = User.fromJson(myRes.data['data']['user']);
           SharedPref.saveUserData(myuser);
-          SharedPref.saveToken( myRes.data['data']['token']);
+          SharedPref.saveToken(myRes.data['data']['token']);
           return LoginResponse.fromJson(myRes.data);
         } catch (e) {
           log('Error parsing response: $e, data: ${myRes.data}');

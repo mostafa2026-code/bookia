@@ -4,7 +4,7 @@ import 'package:bookia/feature/auth/data/model/login/login_response/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
-static    SharedPreferences ?sharedPreferences;
+  static SharedPreferences? sharedPreferences;
   Future<void> init() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
@@ -35,8 +35,13 @@ static    SharedPreferences ?sharedPreferences;
     return sharedPreferences!.getString("token") ?? "";
   }
 
- static  void removeToken() {
+  static void removeToken() {
     sharedPreferences!.remove("token");
   }
-
+static void saveImage(String image) {
+    sharedPreferences!.setString("image", image);
+  }
+static String?  getimage() {
+    return sharedPreferences!.getString("image",);
+  }
 }

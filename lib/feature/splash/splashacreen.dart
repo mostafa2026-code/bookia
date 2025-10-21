@@ -1,5 +1,6 @@
 import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
+import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -15,8 +16,12 @@ class _SplashacreenState extends State<Splashacreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () async {
+      if (SharedPref.getUserData().id == null) {
+        MyNavigation.pushReplace(context, MyRouts.welcome, null);
+      } else {
+        MyNavigation.pushReplace(context, MyRouts.main, null);
+      }
       // ignore: use_build_context_synchronously
-      MyNavigation.pushReplace(context, MyRouts.welcome, null);
     });
   }
 

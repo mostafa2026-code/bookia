@@ -12,7 +12,7 @@ class PlaceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return BlocConsumer<Cartcubit, CartState>(
       listener: (context, state) {
         if (state is CartSuccess) {
@@ -30,7 +30,7 @@ class PlaceScreen extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Form(
-              key: _formKey,
+              key: formKey,
 
               child: Column(
                 spacing: 20,
@@ -99,8 +99,8 @@ class PlaceScreen extends StatelessWidget {
                                                     .governorateController
                                                     .text =
                                                 govs[index];
-                                            cartcubit.selectedGovernorateId =
-                                                govs.indexOf(govs[index]);
+                                            cartcubit.governorateId = govs
+                                                .indexOf(govs[index]);
                                             Navigator.pop(context);
                                           },
                                           title: Text(
@@ -111,8 +111,7 @@ class PlaceScreen extends StatelessWidget {
                                             ),
                                           ),
                                           trailing:
-                                              cartcubit.selectedGovernorateId ==
-                                                  index
+                                              cartcubit.governorateId == index
                                               ? const Icon(Icons.check)
                                               : null,
                                         );
@@ -140,8 +139,12 @@ class PlaceScreen extends StatelessWidget {
                   ),
                   Mainbottm(
                     onpressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        cartcubit.placeMyOredr();
+                      if (formKey.currentState!.validate()) {
+                        MyNavigation.pushReplace(
+                          context,
+                          MyRouts.congratulationscreen,
+                          null,
+                        );
                       }
                     },
                     title: "Submit Order",

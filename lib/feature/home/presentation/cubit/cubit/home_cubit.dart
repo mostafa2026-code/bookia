@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookia/feature/cart/cart/data/cart_repo.dart';
 import 'package:bookia/feature/cart/cart/data/model/cart_response/cart_response.dart';
 import 'package:bookia/feature/home/data/model/home_response/home_response.dart';
@@ -8,6 +10,8 @@ import 'package:bookia/feature/home/data/model/slider_response/slider_response/s
 import 'package:bookia/feature/home/data/model/slider_response/slider_response/slider_response.dart';
 import 'package:bookia/feature/home/data/repo/home_repo.dart';
 import 'package:bookia/feature/home/presentation/cubit/state/home_state.dart';
+import 'package:bookia/feature/wishlist/data/model/response/wish_list_response/datum.dart';
+import 'package:bookia/feature/wishlist/data/repo/wish_list_repo.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,6 +20,7 @@ class HomeCubit extends Cubit<HomeState> {
   List<Product>? bestSeller = [];
   List<MyHomeSlider>? sliders = [];
   List<SearchProduct>? searchResult = [];
+  List<WishListBook> books = [];
 
   Future<void> getAllHome() async {
     var sliderReq = HomeRepo.getSliderPhotos();
@@ -67,6 +72,43 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeSuccess());
     } else {
       emit(HomeError(res!.message ?? ""));
+    }
+  }
+
+  void getWishList() async {
+    try {
+      emit(HomeLoading());
+      var res = await WishListRepo.getwishList();
+      if (res!.data == null) {
+        emit((HomeError(res.error.toString())));
+      } else {
+        books = res.data!.data ?? [];
+        emit(HomeSuccess());
+      }
+    } on Exception catch (e) {
+      log(e.toString());
+    }
+  }
+
+  void removeFromWishList(int productId) async {
+    emit(HomeLoading());
+    var res = await WishListRepo.removeFromWishlist(productId);
+    if (res!.data == null) {
+      emit((HomeError(res.error.toString())));
+    } else {
+      books = books = res.data!.data ?? [];
+      emit(HomeSuccess());
+    }
+  }
+
+  void addToWishList(int productId) async {
+    emit(HomeLoading());
+    var res = await WishListRepo.addTOWishList(productId);
+    if (res!.data == null) {
+      emit((HomeError(res.error.toString())));
+    } else {
+      books = books = res.data!.data ?? [];
+      emit(HomeSuccess());
     }
   }
 }
