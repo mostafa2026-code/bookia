@@ -16,9 +16,12 @@ class _SplashacreenState extends State<Splashacreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () async {
-      if (SharedPref.getUserData().id == null) {
+      final user = SharedPref.getUserData();
+      if (user == null || user.name == null || user.name!.isEmpty) {
+        // ignore: use_build_context_synchronously
         MyNavigation.pushReplace(context, MyRouts.welcome, null);
       } else {
+        // ignore: use_build_context_synchronously
         MyNavigation.pushReplace(context, MyRouts.main, null);
       }
       // ignore: use_build_context_synchronously

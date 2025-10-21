@@ -7,8 +7,9 @@ import 'package:bookia/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPref.clear();
   SharedPref().init();
   MyDioProvider.init();
   runApp(BlocProvider(create: (_) => AuthCubit(), child: MainApp()));

@@ -9,18 +9,26 @@ class SharedPref {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
+  static Future<void> clear() async {
+    sharedPreferences!.clear();
+  }
+
   static void saveUserData(User user) {
+    // ignore: unrelated_type_equality_checks
     if (User == user) return;
     Map<String, dynamic> userMap = user.toJson();
     String userString = jsonEncode(userMap);
     sharedPreferences!.setString("userData", userString);
   }
 
-  static User getUserData() {
-    String userString = sharedPreferences!.getString("userData") ?? "";
+  static User? getUserData() {
+    String? userString = sharedPreferences!.getString("userData");
+    if (userString == null || userString.isEmpty) {
+      return null;
+    }
+
     Map<String, dynamic> userMap = jsonDecode(userString);
-    User user = User.fromJson(userMap);
-    return user;
+    return User.fromJson(userMap);
   }
 
   static void removeUserData() {
@@ -38,10 +46,12 @@ class SharedPref {
   static void removeToken() {
     sharedPreferences!.remove("token");
   }
-static void saveImage(String image) {
+
+  static void saveImage(String image) {
     sharedPreferences!.setString("image", image);
   }
-static String?  getimage() {
-    return sharedPreferences!.getString("image",);
+
+  static String? getimage() {
+    return sharedPreferences!.getString("image");
   }
 }

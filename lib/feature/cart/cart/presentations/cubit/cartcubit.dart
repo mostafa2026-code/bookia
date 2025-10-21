@@ -15,16 +15,16 @@ class Cartcubit extends Cubit<CartState> {
   late dynamic total = "0";
   CartResponse? response;
   TextEditingController nameController = TextEditingController(
-    text: SharedPref.getUserData().name,
+    text: SharedPref.getUserData()!.name,
   );
   TextEditingController emailController = TextEditingController(
-    text: SharedPref.getUserData().email,
+    text: SharedPref.getUserData()!.email,
   );
   TextEditingController addressController = TextEditingController(
-    text: SharedPref.getUserData().address,
+    text: SharedPref.getUserData()!.address,
   );
   TextEditingController phoneController = TextEditingController(
-    text: SharedPref.getUserData().phone,
+    text: SharedPref.getUserData()!.phone,
   );
   TextEditingController governorateController = TextEditingController();
   int governorateId = -22;

@@ -48,6 +48,7 @@ class Profilescreen extends StatelessWidget {
                                             source: ImageSource.camera,
                                           );
                                       SharedPref.saveImage(cubit.image!.path);
+                                      // ignore: use_build_context_synchronously
                                       MyNavigation.pop(context);
                                     },
                                     child: Text("Camera"),
@@ -59,6 +60,7 @@ class Profilescreen extends StatelessWidget {
                                             source: ImageSource.gallery,
                                           );
                                       SharedPref.saveImage(cubit.image!.path);
+                                      // ignore: use_build_context_synchronously
                                       MyNavigation.pop(context);
                                     },
                                     child: Text("gallary"),
@@ -89,14 +91,14 @@ class Profilescreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              SharedPref.getUserData().name ?? "",
+                              SharedPref.getUserData()!.name ?? "",
                               style: MytextStyles.main20_600().copyWith(
                                 fontWeight: FontWeight.w700,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
-                              SharedPref.getUserData().email ?? "",
+                              SharedPref.getUserData()!.email ?? "",
                               maxLines: 1,
                               style: MytextStyles.sub14_400(),
                               overflow: TextOverflow.ellipsis,
