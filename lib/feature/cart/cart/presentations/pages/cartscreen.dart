@@ -16,6 +16,7 @@ class Cartscreen extends StatelessWidget {
 
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text("Cart", style: MytextStyles.main24_400()),
           centerTitle: true,
         ),

@@ -14,7 +14,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final Debouncer _debouncer = Debouncer(milliseconds: 5000);
+  final Debouncer _debouncer = Debouncer(milliseconds: 1000);
   final TextEditingController searchController = TextEditingController();
 
   @override

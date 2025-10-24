@@ -26,7 +26,7 @@ class CheckoutAndTotal extends StatelessWidget {
           ),
           Mainbottm(
             onpressed: () {
-              MyNavigation.push(context, MyRouts.place, null);
+              MyNavigation.push(context, MyRouts.place, total);
             },
             title: "Checkout",
           ),

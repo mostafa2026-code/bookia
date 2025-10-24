@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookia/core/routes/myroutes.dart';
 import 'package:bookia/core/routes/navigation.dart';
 import 'package:bookia/core/services/shared_prefrences/shared_pref.dart';
 import 'package:bookia/core/utils/styles/mystyles.dart';
@@ -24,7 +25,28 @@ class Profilescreen extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
-              actions: [SvgPicture.asset("assets/images/logout.svg")],
+              actions: [
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog.adaptive(
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              cubit.logout();
+
+                              MyNavigation.go(context, MyRouts.welcome, null);
+                            },
+                            child: Text("Log out"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: SvgPicture.asset("assets/images/logout.svg"),
+                ),
+              ],
               title: Text("Profile"),
             ),
             body: Padding(

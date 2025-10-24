@@ -2,15 +2,20 @@ import 'dart:convert';
 
 import 'package:bookia/feature/auth/data/model/login/login_response/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:developer';
 
 class SharedPref {
   static SharedPreferences? sharedPreferences;
-  Future<void> init() async {
+  static Future<void> init() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
   static Future<void> clear() async {
-    sharedPreferences!.clear();
+    if (sharedPreferences != null) {
+      await sharedPreferences!.clear();
+    } else {
+      log('SharedPreferences not initialized!');
+    }
   }
 
   static void saveUserData(User user) {

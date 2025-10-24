@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PlaceScreen extends StatelessWidget {
-  const PlaceScreen({super.key});
+  const PlaceScreen({super.key, required this.total});
+  final String total;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class PlaceScreen extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        Cartcubit cartcubit = context.read<Cartcubit>();
+        Cartcubit cartcubit = context.watch<Cartcubit>();
         return Scaffold(
           appBar: AppBar(),
           body: Padding(
@@ -135,7 +136,7 @@ class PlaceScreen extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Total"), Text(cartcubit.total.toString())],
+                    children: [Text("Total"), Text(total)],
                   ),
                   Mainbottm(
                     onpressed: () {

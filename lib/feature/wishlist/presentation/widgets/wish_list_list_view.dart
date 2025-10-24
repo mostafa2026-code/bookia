@@ -17,11 +17,14 @@ class WishListListView extends StatelessWidget {
         shrinkWrap: true,
 
         scrollDirection: Axis.vertical,
-        itemCount: 2,
+        itemCount: books.length,
         separatorBuilder: (BuildContext context, int index) {
           return Divider();
         },
         itemBuilder: (BuildContext context, int index) {
+          if (books.isEmpty) {
+            return Text("No Products in your WishList");
+          }
           WishListBook book = books[index];
           return Expanded(
             child: WishListContainer(book: book, cubit: cubit),

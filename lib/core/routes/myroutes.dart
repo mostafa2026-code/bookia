@@ -131,7 +131,7 @@ class MyRouts {
         builder: (context, state) {
           return BlocProvider(
             create: (context) => Cartcubit(),
-            child: const PlaceScreen(),
+            child:  PlaceScreen(total:state.extra as String  ,),
           );
         },
       ),

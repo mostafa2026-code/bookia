@@ -10,9 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-class Registerscreen extends StatelessWidget {
+class Registerscreen extends StatefulWidget {
   const Registerscreen({super.key});
 
+  @override
+  State<Registerscreen> createState() => _RegisterscreenState();
+}
+
+class _RegisterscreenState extends State<Registerscreen> {
   @override
   Widget build(BuildContext context) {
     final AuthCubit authcubit = context.read<AuthCubit>();
@@ -72,6 +77,7 @@ class Registerscreen extends StatelessWidget {
                       ),
                       const Gap(16),
                       TextFormField(
+                        obscureText: authcubit.issecured,
                         controller: authcubit.passwordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -81,13 +87,26 @@ class Registerscreen extends StatelessWidget {
                           }
                           return null;
                         },
+
                         decoration: InputDecoration(
                           hintText: "Password",
-                          suffixIcon: Icon(Icons.visibility_off),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                authcubit.changesec();
+                              });
+                            },
+                            icon: Icon(
+                              authcubit.issecured
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
                         ),
                       ),
                       const Gap(16),
                       TextFormField(
+                        obscureText: authcubit.issecuresconfirm,
                         controller: authcubit.confirmpasswordcontroller,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -100,7 +119,18 @@ class Registerscreen extends StatelessWidget {
                         },
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
-                          suffixIcon: Icon(Icons.visibility_off),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                authcubit.conchangesec();
+                              });
+                            },
+                            icon: Icon(
+                              authcubit.issecuresconfirm
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
                         ),
                       ),
                       const Gap(32),

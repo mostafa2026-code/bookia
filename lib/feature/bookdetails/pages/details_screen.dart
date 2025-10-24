@@ -27,7 +27,10 @@ class DetailsScreen extends StatelessWidget {
             context,
           ).showSnackBar(SnackBar(content: Text(state.error)));
         } else {
-          showAboutDialog(context: context, children: [Text("Added To Cart")]);
+          showAboutDialog(
+            context: context,
+            children: [Text("Added Successfully")],
+          );
         }
       },
       child: Scaffold(

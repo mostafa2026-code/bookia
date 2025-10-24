@@ -137,7 +137,7 @@ class SearchGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (products.isEmpty) {
-      return Center(child: Text("No Products Found"));
+      return Center(child: const CircularProgressIndicator());
     } else {
       return GridView.builder(
         shrinkWrap: true,

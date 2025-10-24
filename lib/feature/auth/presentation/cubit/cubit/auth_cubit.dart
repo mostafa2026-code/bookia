@@ -24,6 +24,16 @@ class AuthCubit extends Cubit<AuthStates> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   GlobalKey<FormState> loginformKey = GlobalKey<FormState>();
   GlobalKey<FormState> forgetpasswordformKey = GlobalKey<FormState>();
+  bool issecured = true;
+  bool issecuresconfirm = true;
+  void changesec() {
+    issecured = !issecured;
+  }
+
+  void conchangesec() {
+    issecuresconfirm = !issecuresconfirm;
+  }
+
   Future<void> register() async {
     if (!formKey.currentState!.validate()) return;
     emit(AuthLoadingState());

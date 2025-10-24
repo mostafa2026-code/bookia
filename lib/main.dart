@@ -9,8 +9,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SharedPref.init();
+
   await SharedPref.clear();
-  SharedPref().init();
+  
   MyDioProvider.init();
   runApp(BlocProvider(create: (_) => AuthCubit(), child: MainApp()));
 }

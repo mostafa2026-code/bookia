@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Cartcubit extends Cubit<CartState> {
   Cartcubit() : super(CartInitial());
   List<CartItem>? cartList = [];
-  late dynamic total = "0";
+
   CartResponse? response;
   TextEditingController nameController = TextEditingController(
     text: SharedPref.getUserData()!.name,
@@ -28,6 +28,7 @@ class Cartcubit extends Cubit<CartState> {
   );
   TextEditingController governorateController = TextEditingController();
   int governorateId = -22;
+   String total = "0";
 
   void getAllCartItems() async {
     emit(CartLoading());
@@ -36,7 +37,7 @@ class Cartcubit extends Cubit<CartState> {
       emit(CartError(message: res.error.toString()));
     } else {
       cartList = res.data!.cartItems;
-      total = res.data!.total;
+      total = res.data!.total.toString();
       response = res;
       emit(CartSuccess());
     }
@@ -50,7 +51,7 @@ class Cartcubit extends Cubit<CartState> {
       emit(CartError(message: res.error.toString()));
     } else {
       cartList = res.data!.cartItems;
-      total = res.data!.total;
+      total = res.data!.total.toString();
       response = res;
       emit(CartSuccess());
     }
@@ -63,7 +64,7 @@ class Cartcubit extends Cubit<CartState> {
       emit(CartError(message: res.error.toString()));
     } else {
       cartList = res.data!.cartItems;
-      total = res.data!.total;
+      total = res.data!.total.toString();
       response = res;
       emit(CartSuccess());
     }
@@ -84,7 +85,7 @@ class Cartcubit extends Cubit<CartState> {
       emit(CartError(message: res.error.toString()));
     } else {
       cartList = res.data!.cartItems;
-      total = res.data!.total;
+      total = res.data!.total.toString();
       response = res;
       emit(CartSuccess());
     }
